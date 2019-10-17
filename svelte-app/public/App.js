@@ -953,24 +953,11 @@ const Home = create_ssr_component(($$result, $$props, $$bindings, $$slots) => {
 
 const css = {
 	code: "canvas.svelte-1j6em85{position:fixed}",
-	map: "{\"version\":3,\"file\":\"Video.svelte\",\"sources\":[\"Video.svelte\"],\"sourcesContent\":[\"<script>\\n  import { onMount } from \\\"svelte\\\";\\n  // import Item from \\\"./Item.svelte\\\";\\n  // let name = \\\"world\\\";\\n  // let count = 0;\\n\\n  // function handleClick() {\\n  //   count += 1;\\n  // }\\n\\n  // let dummyData = [\\n  //   { name: \\\"This is a component\\\" },\\n  //   { name: \\\"This is a component\\\" },\\n  //   { name: \\\"This is a component\\\" }\\n  // ];\\n  let context, video, canvas, w, h, ratio;\\n\\n  onMount(() => {\\n    video = document.querySelector(\\\"video\\\");\\n    canvas = document.querySelector(\\\"#canvas\\\");\\n    console.log(video, canvas);\\n    context = canvas.getContext(\\\"2d\\\");\\n\\n    video.addEventListener(\\n      \\\"loadedmetadata\\\",\\n      function() {\\n        ratio = video.videoWidth / video.videoHeight;\\n        w = video.videoWidth - 100;\\n        h = parseInt(w / ratio, 10);\\n        canvas.width = w;\\n        canvas.height = h;\\n      },\\n      false\\n    );\\n  });\\n  function snap() {\\n    context.fillRect(0, 0, w, h);\\n    context.drawImage(video, 0, 0, w, h);\\n\\n    const image = canvas\\n      .toDataURL(\\\"image/png\\\")\\n      .replace(\\\"image/png\\\", \\\"image/octet-stream\\\"); // here is the most important part because if you dont replace you will get a DOM 18 exception.\\n    const base64 = new Image();\\n    base64.src = image;\\n    document.body.appendChild(base64);\\n\\n    context.clearRect(0, 0, canvas.width, canvas.height);\\n    console.log(base64);\\n  }\\n</script>\\n\\n<style>\\n  canvas {\\n    position: fixed;\\n  }\\n</style>\\n\\n<h1>Snapshot proto</h1>\\n\\n<video controls>\\n  <source src=\\\"./snow-monks.mp4\\\" type=\\\"video/mp4\\\" />\\n</video>\\n<button id=\\\"snap\\\" on:click={snap}>Snap Photo</button>\\n<canvas id=\\\"canvas\\\" width=\\\"640\\\" height=\\\"480\\\" />\\n\"],\"names\":[],\"mappings\":\"AAoDE,MAAM,eAAC,CAAC,AACN,QAAQ,CAAE,KAAK,AACjB,CAAC\"}"
+	map: "{\"version\":3,\"file\":\"Video.svelte\",\"sources\":[\"Video.svelte\"],\"sourcesContent\":[\"<script>\\n  import { onMount } from \\\"svelte\\\";\\n  let context, video, canvas, w, h, ratio;\\n\\n  onMount(() => {\\n    video = document.querySelector(\\\"video\\\");\\n    canvas = document.querySelector(\\\"#canvas\\\");\\n    console.log(video, canvas);\\n    context = canvas.getContext(\\\"2d\\\");\\n\\n    video.addEventListener(\\n      \\\"loadedmetadata\\\",\\n      function() {\\n        ratio = video.videoWidth / video.videoHeight;\\n        w = video.videoWidth - 100;\\n        h = parseInt(w / ratio, 10);\\n        canvas.width = w;\\n        canvas.height = h;\\n      },\\n      false\\n    );\\n  });\\n  function snap() {\\n    context.fillRect(0, 0, w, h);\\n    context.drawImage(video, 0, 0, w, h);\\n\\n    const image = canvas\\n      .toDataURL(\\\"image/png\\\")\\n      .replace(\\\"image/png\\\", \\\"image/octet-stream\\\"); // here is the most important part because if you dont replace you will get a DOM 18 exception.\\n    const base64 = new Image();\\n    base64.src = image;\\n    document.querySelector(\\\".video-view\\\").appendChild(base64);\\n\\n    context.clearRect(0, 0, canvas.width, canvas.height);\\n    console.log(base64);\\n  }\\n</script>\\n\\n<style>\\n  canvas {\\n    position: fixed;\\n  }\\n</style>\\n\\n<section class=\\\"video-view\\\">\\n  <h1>Snapshot proto</h1>\\n\\n  <video controls>\\n    <source src=\\\"./snow-monks.mp4\\\" type=\\\"video/mp4\\\" />\\n  </video>\\n  <button id=\\\"snap\\\" on:click={snap}>Snap Photo</button>\\n  <canvas id=\\\"canvas\\\" width=\\\"640\\\" height=\\\"480\\\" />\\n</section>\\n\"],\"names\":[],\"mappings\":\"AAuCE,MAAM,eAAC,CAAC,AACN,QAAQ,CAAE,KAAK,AACjB,CAAC\"}"
 };
 
 const Video = create_ssr_component(($$result, $$props, $$bindings, $$slots) => {
-	// import Item from "./Item.svelte";
-  // let name = "world";
-  // let count = 0;
-
-  // function handleClick() {
-  //   count += 1;
-  // }
-
-  // let dummyData = [
-  //   { name: "This is a component" },
-  //   { name: "This is a component" },
-  //   { name: "This is a component" }
-  // ];
-  let context, video, canvas, w, h, ratio;
+	let context, video, canvas, w, h, ratio;
 
   onMount(() => {
     video = document.querySelector("video");
@@ -993,13 +980,15 @@ const Video = create_ssr_component(($$result, $$props, $$bindings, $$slots) => {
 
 	$$result.css.add(css);
 
-	return `<h1>Snapshot proto</h1>
+	return `<section class="video-view">
+	  <h1>Snapshot proto</h1>
 
-	<video controls>
-	  <source src="./snow-monks.mp4" type="video/mp4">
-	</video>
-	<button id="snap">Snap Photo</button>
-	<canvas id="canvas" width="640" height="480" class="svelte-1j6em85"></canvas>`;
+	  <video controls>
+	    <source src="./snow-monks.mp4" type="video/mp4">
+	  </video>
+	  <button id="snap">Snap Photo</button>
+	  <canvas id="canvas" width="640" height="480" class="svelte-1j6em85"></canvas>
+	</section>`;
 });
 
 /* src/routes/Blog.svelte generated by Svelte v3.12.1 */
