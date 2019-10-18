@@ -1,15 +1,21 @@
 <script>
+  // Plugins
   import { Router, Route } from "svelte-routing";
-  import NavLink from "./components/NavLink.svelte";
+  import { onMount } from "svelte";
+
+  // Pages
   import Home from "./routes/Home.svelte";
   import RetrieveData from "./routes/RetrieveData.svelte";
   import Video from "./routes/Video.svelte";
   import Blog from "./routes/Blog.svelte";
 
-  // Used for SSR. A falsy value is ignored by the Router.
-  export let url = "";
+  // Components
+  import NavLink from "./components/NavLink.svelte";
 
-  import { onMount } from "svelte";
+  // Used for routing
+  export let url = ""; // Used for SSR. A falsy value is ignored by the Router.
+
+  // Specify which data is retrieved
   const queryUrl =
     "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-20/sparql";
 
@@ -33,18 +39,17 @@
     dc:title ?title .
     # FILTER langMatches(lang(?title), "ned")
   }
-  LIMIT 30
+  LIMIT 50
   `;
   let results = [];
 
+  // Fetch data & clean it
   function runQuery(queryUrl, query) {
     fetch(queryUrl + "?query=" + encodeURIComponent(query) + "&format=json")
       .then(res => res.json())
       .then(json => {
         results = JSON.parse(JSON.stringify(json.results));
         results = results.bindings;
-        results = results.map(i => i);
-        console.log(results);
         results = results.map((result, index) => {
           return {
             id: index,
@@ -60,20 +65,21 @@
   onMount(() => {
     runQuery(queryUrl, query);
   });
-
-  const abc = "abc";
 </script>
 
 <Router {url}>
+  <!-- Nav links -->
   <nav>
     <NavLink to="/">Home</NavLink>
     <NavLink to="video">Video</NavLink>
     <NavLink to="blog">Blog</NavLink>
     <NavLink to="retrieve-data">Retrieve Data</NavLink>
   </nav>
+
+  <!-- Route pages -->
   <div>
     <Route path="video" component={Video} />
-    <Route path="retrieve-data" {abc} {results} component={RetrieveData} />
+    <Route path="retrieve-data" {results} component={RetrieveData} />
     <Route path="blog/*" component={Blog} />
     <Route path="/" component={Home} />
   </div>
