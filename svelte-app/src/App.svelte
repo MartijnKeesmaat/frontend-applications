@@ -43,7 +43,17 @@
       .then(json => {
         results = JSON.parse(JSON.stringify(json.results));
         results = results.bindings;
+        results = results.map(i => i);
         console.log(results);
+        results = results.map((result, index) => {
+          return {
+            id: index,
+            description: result.description.value,
+            imageLink: result.imageLink.value,
+            title: result.title.value,
+            placeName: result.placeName.value
+          };
+        });
       });
   }
 
