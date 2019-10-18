@@ -40,6 +40,10 @@
   canvas {
     position: fixed;
   }
+  video {
+    width: 800px;
+    height: 400px;
+  }
 </style>
 
 <section class="video-view">
