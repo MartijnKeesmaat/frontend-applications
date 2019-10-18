@@ -1,8 +1,8 @@
 # 📸 Perspective
 
-> A dating app feature for getting to know people more easily.
+> An educative interaction
 
-When you have trouble connecting with people you don't know and want to start a conversation you can use the ice-breaker feature. When you see someone you want to connect with, you can send an ice-breaker. This is a series of image-pairs. You select the image that you like the most. When completed the series, it will be sent to the other person. So for example the you see two images, one of someone staying inside, watching a movie and an image of someone at a party. You click on the party and the other does as well, you will see the result. Now you have an easier way of starting the conversation because you both like to party.
+The goal of Perspective is to educate students by placing them behind the lens. They will take snapshots of certain important moments in history. These snapshots will be combined with data from the [Tropen Museum](https://www.tropenmuseum.nl/) into an storytelling website.
 
 ![a0709ab439210cd67698d4b670b485ab](https://user-images.githubusercontent.com/8048514/67019070-62b58980-f0fc-11e9-82fc-b9b67feade4e.gif)
 
