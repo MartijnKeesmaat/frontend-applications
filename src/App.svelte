@@ -8,6 +8,7 @@
   import RetrieveData from "./routes/RetrieveData.svelte";
   import Video from "./routes/Video.svelte";
   import Blog from "./routes/Blog.svelte";
+  import Mask from "./routes/Mask.svelte";
 
   // Components
   import NavLink from "./components/NavLink.svelte";
@@ -73,6 +74,7 @@
     <NavLink to="/">Home</NavLink>
     <NavLink to="video">Video</NavLink>
     <NavLink to="blog">Blog</NavLink>
+    <NavLink to="mask">Mask</NavLink>
     <NavLink to="retrieve-data">Retrieve Data</NavLink>
   </nav>
 
@@ -82,5 +84,6 @@
     <Route path="retrieve-data" {results} component={RetrieveData} />
     <Route path="blog/*" component={Blog} />
     <Route path="/" component={Home} />
+    <Route path="mask" component={Mask} />
   </div>
 </Router>
