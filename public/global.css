@@ -117,3 +117,18 @@ h3 .title-highlight {
 
   font-size: 29px;
 }
+
+.mask-wrapper canvas {
+  position: fixed;
+  z-index: 2;
+}
+
+.mask-wrapper #bg-img {
+  position: fixed;
+  z-index: 1;
+
+  width: 100vw;
+  height: 100vh;
+
+  object-fit: cover;
+}

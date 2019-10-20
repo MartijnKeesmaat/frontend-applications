@@ -79,19 +79,6 @@
 </script>
 
 <style>
-  canvas {
-    position: fixed;
-    z-index: 2;
-  }
-
-  #bg-img {
-    position: fixed;
-    z-index: 1;
-    object-fit: cover;
-    height: 100vh;
-    width: 100vw;
-  }
-
   .hero {
     position: relative;
     z-index: 3;
@@ -166,10 +153,10 @@
 
   <div class="hero__cta">
     <NavLink to="video">
-      <a>
-        <button class="button-round">
+      <a href="nou en">
+        <span class="button-round">
           <img src="icons/arrow.svg" alt="" />
-        </button>
+        </span>
         <h3 class="title-main">
           Vertel
           <span class="title-highlight">Je verhaal</span>
