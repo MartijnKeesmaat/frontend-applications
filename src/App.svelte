@@ -70,12 +70,17 @@
 
 <Router {url}>
   <!-- Nav links -->
-  <nav>
-    <NavLink to="/">Home</NavLink>
-    <NavLink to="video">Video</NavLink>
-    <NavLink to="blog">Blog</NavLink>
-    <NavLink to="mask">Mask</NavLink>
-    <NavLink to="retrieve-data">Retrieve Data</NavLink>
+  <nav class="main-nav">
+    <NavLink to="/">
+      <img src="icons/logo.svg" alt="" />
+    </NavLink>
+
+    <div class="main-nav__links">
+      <NavLink to="video">Video</NavLink>
+      <NavLink to="blog">Blog</NavLink>
+      <NavLink to="mask">Mask</NavLink>
+      <NavLink to="retrieve-data">Retrieve Data</NavLink>
+    </div>
   </nav>
 
   <!-- Route pages -->

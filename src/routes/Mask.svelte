@@ -70,8 +70,8 @@
       reOffset();
     };
 
-    canvas.addEventListener("mousemove", mouseMove, false);
-    canvas.addEventListener("touchmove", mouseMove, false);
+    document.body.addEventListener("mousemove", mouseMove, false);
+    document.body.addEventListener("touchmove", mouseMove, false);
 
     draw(w / 2, h / 2, 400);
   }
@@ -86,8 +86,39 @@
   #bg-img {
     position: fixed;
     z-index: 1;
+    object-fit: cover;
+    height: 100vh;
   }
 </style>
 
-<canvas id="mask" width="500" height="300" />
-<img id="bg-img" src="./img/dummy1.jpg" alt="" />
+<div class="mask-wrapper">
+  <canvas id="mask" width="500" height="300" />
+  <img id="bg-img" src="./img/dummy1.jpg" alt="" />
+</div>
+
+<section class="hero">
+  <div class="hero__intro">
+    <h1 class="title-main">
+      Wat is jouw
+      <span class="title-highlight">Perspectief</span>
+    </h1>
+    <p class="body">
+      Na de uitvinding van de fotografie in 1839 werd de rol van de expeditie
+      overgenomen door de fotograaf. Landschappen, mensen en hun
+      leefomstandigheden waren de belangrijkste onderwerpen. Het is aan jou de
+      taak om deze zo goed mogelijk vast te leggen.
+    </p>
+  </div>
+
+  <div class="hero__cta">
+    <a href="">
+      <button class="button-round">
+        <img src="icons/arrow.svg" alt="" />
+      </button>
+      <h3 class="title-main">
+        Vertel
+        <span class="title-highlight">Je verhaal</span>
+      </h3>
+    </a>
+  </div>
+</section>
