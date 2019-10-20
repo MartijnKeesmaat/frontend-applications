@@ -14,6 +14,6 @@
   }
 </script>
 
-<Link to="{to}" getProps="{getProps}">
+<Link {to} {getProps}>
   <slot />
 </Link>

@@ -26,6 +26,10 @@ p {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 nav {
   position: fixed;
   z-index: 10;
@@ -48,26 +52,6 @@ nav {
   opacity: 0.3;
   color: #fff;
   background: #000;
-}
-
-.hero {
-  position: relative;
-  z-index: 3;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100%;
-  max-width: 950px;
-  height: 100vh;
-  margin: 0 auto;
-
-  color: #fff;
-}
-
-.hero__intro {
-  max-width: 507px;
 }
 
 .title-main {
@@ -96,34 +80,6 @@ nav {
   line-height: 2;
 }
 
-.hero__cta a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-decoration: none;
-
-  color: #fff;
-}
-
-.hero__cta:hover .button-round {
-  cursor: pointer;
-
-  border: 2px solid rgba(255, 255, 255, 0.6);
-}
-
-.hero__cta:hover .title-main {
-  transform: translateX(2px);
-}
-
-.hero__cta:hover .title-highlight {
-  transform: translateX(4px);
-}
-
-.hero__cta .button-round {
-  margin-right: 15px;
-}
-
 .button-round {
   display: flex;
   align-items: center;
@@ -144,6 +100,8 @@ nav {
   height: 19px;
   margin-top: -1px;
   margin-left: 3px;
+
+  transition: 0.3s all ease;
 }
 
 h3.title-main {
@@ -154,7 +112,7 @@ h3.title-main {
 
 h3 .title-highlight {
   transition: 0.3s all ease;
-  letter-spacing: 0.3;
+  letter-spacing: 0.3px;
   text-transform: initial;
 
   font-size: 29px;

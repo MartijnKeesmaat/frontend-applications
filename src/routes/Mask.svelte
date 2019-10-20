@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import NavLink from "../components/NavLink.svelte";
   onMount(() => {
     drawMask();
   });
@@ -88,6 +89,59 @@
     z-index: 1;
     object-fit: cover;
     height: 100vh;
+    width: 100vw;
+  }
+
+  .hero {
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 900px;
+    height: 100vh;
+    margin: 0 auto;
+
+    color: #fff;
+  }
+
+  .hero__intro {
+    max-width: 507px;
+  }
+
+  .hero__cta a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none !important;
+
+    color: #fff;
+  }
+
+  .hero__cta:hover .button-round {
+    cursor: pointer;
+
+    border: 2px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .hero__cta:hover .title-main {
+    transform: translateX(2px);
+  }
+
+  .hero__cta:hover .title-highlight {
+    transform: translateX(4px);
+  }
+
+  .hero__cta:hover .button-round img {
+    transform: rotate(-30deg);
+  }
+
+  .hero__cta .button-round {
+    margin-right: 15px;
   }
 </style>
 
@@ -111,14 +165,16 @@
   </div>
 
   <div class="hero__cta">
-    <a href="">
-      <button class="button-round">
-        <img src="icons/arrow.svg" alt="" />
-      </button>
-      <h3 class="title-main">
-        Vertel
-        <span class="title-highlight">Je verhaal</span>
-      </h3>
-    </a>
+    <NavLink to="video">
+      <a>
+        <button class="button-round">
+          <img src="icons/arrow.svg" alt="" />
+        </button>
+        <h3 class="title-main">
+          Vertel
+          <span class="title-highlight">Je verhaal</span>
+        </h3>
+      </a>
+    </NavLink>
   </div>
 </section>
