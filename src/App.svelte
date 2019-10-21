@@ -72,7 +72,7 @@
   <!-- Nav links -->
   <nav class="main-nav">
     <NavLink to="/">
-      <img src="icons/logo.svg" alt="" />
+      <img src="/icons/logo.svg" alt="" />
     </NavLink>
 
     <div class="main-nav__links">
