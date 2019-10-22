@@ -4,12 +4,6 @@
   let context, video, canvas, w, h;
 
   onMount(() => {
-    var test = localStorage.getItem("snapshot1");
-    const snapshot = new Image();
-    snapshot.src = test;
-    console.log(snapshot);
-    document.querySelector("#snapshots-taken").appendChild(snapshot);
-
     spotlightBackground({
       spotSize: 500,
       backgroundColor: "rgba(0, 0, 0, 0.85)",
@@ -21,6 +15,7 @@
     });
     initVideoSnapshot();
     showVideo();
+    addPrevSnapshots("snapshot1");
   });
 
   // #### VIDEO SNAPSHOT #####
@@ -82,6 +77,16 @@
   function addSnapshotToDOM(snapshot) {
     document.querySelector("#snapshots-taken h4").style.opacity = 1;
     document.querySelector("#snapshots-taken").appendChild(snapshot);
+  }
+
+  function addPrevSnapshots(snapshot) {
+    if (localStorage.getItem(snapshot)) {
+      const prevSnapshot = localStorage.getItem(snapshot);
+      const snapshotImg = new Image();
+      snapshotImg.src = prevSnapshot;
+      styleSnapshot(snapshotImg);
+      addSnapshotToDOM(snapshotImg);
+    }
   }
 
   // #### VIDEO INSTRUCTIONS #####
