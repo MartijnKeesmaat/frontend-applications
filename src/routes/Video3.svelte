@@ -57,7 +57,6 @@
     const image = canvas
       .toDataURL("image/png")
       .replace("image/png", "image/octet-stream");
-    localStorage.setItem("snapshot1", image);
     const snapshot = new Image();
     snapshot.src = image;
     return snapshot;
@@ -302,7 +301,7 @@
           <p class="video-count__count">03</p>
         </div>
 
-        <h1 class="video-title">Onafhankelijkheid</h1>
+        <h1 class="video-title">De jungle</h1>
       </div>
 
       <div class="video-instructions__container">

@@ -4,6 +4,12 @@
   let context, video, canvas, w, h;
 
   onMount(() => {
+    var test = localStorage.getItem("snapshot1");
+    const snapshot = new Image();
+    snapshot.src = test;
+    console.log(snapshot);
+    document.querySelector("#snapshots-taken").appendChild(snapshot);
+
     spotlightBackground({
       spotSize: 500,
       backgroundColor: "rgba(0, 0, 0, 0.85)",
@@ -57,7 +63,6 @@
     const image = canvas
       .toDataURL("image/png")
       .replace("image/png", "image/octet-stream");
-    localStorage.setItem("snapshot1", image);
     const snapshot = new Image();
     snapshot.src = image;
     return snapshot;
@@ -302,7 +307,7 @@
           <p class="video-count__count">03</p>
         </div>
 
-        <h1 class="video-title">Onafhankelijkheid</h1>
+        <h1 class="video-title">Het verdag</h1>
       </div>
 
       <div class="video-instructions__container">
@@ -317,7 +322,7 @@
           </div>
         </div>
         <video poster="/img/poster.jpg">
-          <source src="/video/demo2.mp4" type="video/mp4" />
+          <source src="/video/demo.mp4" type="video/mp4" />
         </video>
       </div>
 
