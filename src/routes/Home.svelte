@@ -3,6 +3,8 @@
   import NavLink from "../components/NavLink.svelte";
   import spotlightBackground from "../functions/spotlightBackground.js";
 
+  console.log("test");
+
   onMount(() => {
     spotlightBackground({
       spotSize: 400,
