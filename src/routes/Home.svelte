@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import NavLink from "../components/NavLink.svelte";
   import spotlightBackground from "../functions/spotlightBackground.js";
 
   console.log("test");
