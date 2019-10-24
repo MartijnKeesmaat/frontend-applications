@@ -91,7 +91,7 @@
   </div>
 
   <div class="hero__cta">
-    <NavLink to="video">
+    <!-- <NavLink to="video">
       <a href="nou en">
         <span class="button-round">
           <img src="icons/arrow.svg" alt="" />
@@ -101,6 +101,6 @@
           <span class="title-highlight">Je verhaal</span>
         </h3>
       </a>
-    </NavLink>
+    </NavLink> -->
   </div>
 </section>
