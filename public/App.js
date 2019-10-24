@@ -1600,7 +1600,7 @@ const App = create_ssr_component(($$result, $$props, $$bindings, $$slots) => {
 	  
 	  <div>
 	    ${validate_component(Route, 'Route').$$render($$result, { path: "/", component: Home }, {}, {})}
-	    ${validate_component(Route, 'Route').$$render($$result, { path: "home", component: Home }, {}, {})}
+	    ${validate_component(Route, 'Route').$$render($$result, { path: "intro", component: Home }, {}, {})}
 	    ${validate_component(Route, 'Route').$$render($$result, { path: "video", component: Video }, {}, {})}
 	    ${validate_component(Route, 'Route').$$render($$result, { path: "video2", component: Video2 }, {}, {})}
 	    ${validate_component(Route, 'Route').$$render($$result, { path: "video3", component: Video3 }, {}, {})}

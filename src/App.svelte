@@ -86,7 +86,7 @@
   <!-- Route pages -->
   <div>
     <Route path="/" component={Home} />
-    <Route path="home" component={Home} />
+    <Route path="intro" component={Home} />
     <Route path="video" component={Video} />
     <Route path="video2" component={Video2} />
     <Route path="video3" component={Video3} />
