@@ -72,7 +72,7 @@
 <Router {url}>
   <!-- Nav links -->
   <nav class="main-nav">
-    <NavLink to="/">
+    <NavLink to="/intro">
       <img src="/icons/logo.svg" alt="" />
     </NavLink>
 
