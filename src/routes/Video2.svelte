@@ -309,10 +309,10 @@
       <div class="video-meta-description">
         <div class="video-count">
           <h3 class="video-count__title">Foto</h3>
-          <p class="video-count__count">03</p>
+          <p class="video-count__count">02</p>
         </div>
 
-        <h1 class="video-title">Het verdag</h1>
+        <h1 class="video-title">Wegversperingen</h1>
       </div>
 
       <div class="video-instructions__container">
@@ -327,7 +327,7 @@
           </div>
         </div>
         <video poster="/img/poster.jpg">
-          <source src="/video/demo.mp4" type="video/mp4" />
+          <source src="/video/wegversperingen.mp4" type="video/mp4" />
         </video>
       </div>
 

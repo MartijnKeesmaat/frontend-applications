@@ -6,7 +6,7 @@
   onMount(() => {
     spotlightBackground({
       spotSize: 400,
-      backgroundColor: "rgba(5, 5, 5, 0.85)",
+      backgroundColor: "rgba(10, 12, 20, 0.85)",
       gradientColor: [
         "rgba(0, 0, 0, 0.3)",
         "rgba(0, 0, 0, 0.3)",

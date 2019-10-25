@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import spotlightBackground from "../functions/spotlightBackground.js";
+  import NavLink from "../components/NavLink.svelte";
   let context, video, canvas, w, h;
 
   onMount(() => {
@@ -15,6 +16,7 @@
     });
     initVideoSnapshot();
     showVideo();
+    toggleNext();
   });
 
   // #### VIDEO SNAPSHOT #####
@@ -96,6 +98,27 @@
     }
 
     videoInstructions.addEventListener("click", toggleVideoClass);
+  }
+
+  function toggleNext() {
+    document.querySelector("video").addEventListener("ended", myHandler, false);
+
+    function myHandler(e) {
+      const videoInstructions = document.querySelector(".video-instructions");
+      const snapButton = document.getElementById("snap");
+      console.log("a");
+      console.log(videoInstructions);
+      snapButton.style.opacity = 0;
+      videoInstructions.style.opacity = 1;
+      videoInstructions.style.visibility = "visible";
+
+      document.querySelector(".video-instructions__container").innerHTML = `
+          <NavLink class="next-video" to="/video2">
+            <h3>Bekijk de volgende video</h3>
+          </NavLink>
+        `;
+      console.log("videoInstructions");
+    }
   }
 </script>
 
@@ -250,7 +273,40 @@
 
     transition: 0.3s all ease;
 
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(10, 10, 10, 0.7);
+
+    cursor: pointer;
+  }
+
+  .video-instructions:hover {
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  .video-instructions:hover .button-round {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .video-instructions:hover h3 {
+    opacity: 1;
+  }
+
+  .next-video {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    padding-bottom: 30px;
+
+    transition: 0.3s all ease;
+
+    background: rgba(10, 10, 10, 0.7);
 
     cursor: pointer;
   }
@@ -266,16 +322,20 @@
     justify-content: center;
   }
 
-  .video-instructions h3 {
-    max-width: 260px;
+  .video-instructions__container h3 {
+    max-width: 240px;
     margin: 0;
     margin-right: 10px;
+
+    transition: 0.3s all ease;
 
     text-align: right;
     letter-spacing: 1px;
 
     font-size: 17px;
     font-weight: 400;
+
+    opacity: 0.7;
   }
 
   .video-instructions button img {
@@ -302,16 +362,19 @@
       <div class="video-meta-description">
         <div class="video-count">
           <h3 class="video-count__title">Foto</h3>
-          <p class="video-count__count">03</p>
+          <p class="video-count__count">01</p>
         </div>
 
-        <h1 class="video-title">Onafhankelijkheid</h1>
+        <h1 class="video-title">Marine landing</h1>
       </div>
 
       <div class="video-instructions__container">
         <div class="video-instructions">
           <div class="divie">
-            <h3>Maak snapshots van de video, de laatste neem je mee</h3>
+            <h3>
+              Maak momentopnames van de gebeurtenis, de laatste zie je straks
+              terug
+            </h3>
             <button>
               <span class="button-round">
                 <img src="/icons/arrow-solid.svg" alt="" />
@@ -320,7 +383,7 @@
           </div>
         </div>
         <video poster="/img/poster.jpg">
-          <source src="/video/demo2.mp4" type="video/mp4" />
+          <source src="/video/landing-marine.mp4" type="video/mp4" />
         </video>
       </div>
 
