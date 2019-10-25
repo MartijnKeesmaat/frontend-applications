@@ -1,6 +1,24 @@
 <script>
   import { onMount } from "svelte";
-  onMount(() => {});
+  const fallbackImg = "../img/dummy3.jpg";
+
+  let snapshot1 = fallbackImg;
+  let snapshot2 = fallbackImg;
+  let snapshot3 = fallbackImg;
+
+  onMount(() => {
+    snapshot1 = localStorage.getItem("snapshot1")
+      ? localStorage.getItem("snapshot1")
+      : fallbackImg;
+
+    snapshot2 = localStorage.getItem("snapshot2")
+      ? localStorage.getItem("snapshot2")
+      : fallbackImg;
+
+    snapshot3 = localStorage.getItem("snapshot3")
+      ? localStorage.getItem("snapshot3")
+      : fallbackImg;
+  });
 </script>
 
 <style>
@@ -167,14 +185,7 @@
         <div class="stories">
           <figure class="story__moment background">
 
-            <img
-              class="story__moment-img background"
-              src={localStorage.getItem('snapshot1')}
-              alt="" />
-            <!-- <img
-              class="story__moment-img background"
-              src="/img/dummy4.jpg"
-              alt="" /> -->
+            <img class="story__moment-img background" src={snapshot1} alt="" />
             <figcaption>
               Na de uitvinding van de fotografie in 1839 werd de rol van de
               expeditie overgenomen door de fotograaf. Landschappen, mensen en
@@ -226,17 +237,7 @@
         <div class="stories">
           <figure class="story__moment">
 
-            {#if localStorage.getItem('snapshot1') === true}
-              <img
-                class="story__moment-img"
-                src={localStorage.getItem('snapshot2')}
-                alt="" />
-            {:else}
-              <img
-                class="story__moment-img"
-                src={localStorage.getItem('snapshot2')}
-                alt="" />
-            {/if}
+            <img class="story__moment-img background" src={snapshot2} alt="" />
             <figcaption>
               Na de uitvinding van de fotografie in 1839 werd de rol van de
               expeditie overgenomen door de fotograaf. Landschappen, mensen en
@@ -284,15 +285,8 @@
       <div class="story__moment-container">
         <div class="stories">
           <figure class="story__moment">
-
-            {#if localStorage.getItem('snapshot1') === true}
-              <img
-                class="story__moment-img"
-                src={localStorage.getItem('snapshot1')}
-                alt="" />
-            {:else}
-              <img class="story__moment-img" src="/img/dummy4.jpg" alt="" />
-            {/if}
+            {snapshot3}
+            <img class="story__moment-img background" src={snapshot3} alt="" />
             <figcaption>
               Na de uitvinding van de fotografie in 1839 werd de rol van de
               expeditie overgenomen door de fotograaf. Landschappen, mensen en

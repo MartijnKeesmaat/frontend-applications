@@ -1,20 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import NavLink from "../components/NavLink.svelte";
-  // import spotlightBackground from "../functions/spotlightBackground.js";
   import SpotlightBackground from "../components/SpotlightBackground.svelte";
-
-  onMount(() => {
-    // spotlightBackground({
-    //   spotSize: 400,
-    //   backgroundColor: "rgba(10, 12, 20, 0.85)",
-    //   gradientColor: [
-    //     "rgba(0, 0, 0, 0.3)",
-    //     "rgba(0, 0, 0, 0.3)",
-    //     "rgba(0, 0, 0, 0)"
-    //   ]
-    // });
-  });
 
   const spotSize = 400;
   const backgroundColor = "rgba(10, 12, 20, 0.85)";

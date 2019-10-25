@@ -1,29 +1,31 @@
-<!-- <script>
+<script>
   import { onMount } from "svelte";
-  import spotlightBackground from "../functions/spotlightBackground.js";
+  import SpotlightBackground from "../components/SpotlightBackground.svelte";
+  import NavLink from "../components/NavLink.svelte";
   import VideoSnapshot from "../components/VideoSnapshot.svelte";
 
-  onMount(() => {
-    spotlightBackground({
-      spotSize: 500,
-      backgroundColor: "rgba(0, 0, 0, 0.85)",
-      gradientColor: [
-        "rgba(0, 0, 0, 0.1)",
-        "rgba(0, 0, 0, 0.1)",
-        "rgba(0, 0, 0, 0)"
-      ]
-    });
-  });
-</script><style>
+  const spotSize = 500;
+  const backgroundColor = "rgba(15, 20, 20, 0.8)";
+  const gradientColor = [
+    "rgba(0, 0, 0, 0.1)",
+    "rgba(0, 0, 0, 0.1)",
+    "rgba(0, 0, 0, 0)"
+  ];
+</script>
 
-</style><div class="mask-wrapper">
-  <canvas id="mask" width="500" height="300" />
-  <img id="bg-img" src="/img/dummy2.jpg" alt="" />
-</div>
+<style>
+
+</style>
+
+<SpotlightBackground
+  {spotSize}
+  {backgroundColor}
+  {gradientColor}
+  backgroundImage="/img/dummy4.jpg" />
 
 <VideoSnapshot
   videoSrc="/video/landing-marine.mp4"
-  videoTitle="Wegversperingen"
   posterSrc="/img/poster.jpg"
+  videoTitle="Wegversperingen"
   localStorageLink="snapshot2"
-  photoCount="02" /> -->
+  photoCount="02" />

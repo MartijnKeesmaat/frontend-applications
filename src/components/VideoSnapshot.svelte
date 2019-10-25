@@ -211,10 +211,16 @@
     width: 55px;
     height: 55px;
 
+    cursor: pointer;
+
     opacity: 0;
     transition: 0.3s all ease;
     background: #ffe6a0;
     box-shadow: 0 0 30px 4px rgba(255, 230, 160, 0.4);
+  }
+
+  #snap:hover {
+    box-shadow: 0 0 30px 6px rgba(255, 230, 160, 0.4);
   }
 
   #snap img {

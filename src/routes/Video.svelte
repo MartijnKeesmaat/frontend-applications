@@ -11,10 +11,6 @@
     "rgba(0, 0, 0, 0.1)",
     "rgba(0, 0, 0, 0)"
   ];
-  onMount(() => {
-    // spotlightBackground({
-    // });
-  });
 </script>
 
 <style>
