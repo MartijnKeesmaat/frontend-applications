@@ -10,6 +10,7 @@
   import Video2 from "./routes/Video2.svelte";
   import Video3 from "./routes/Video3.svelte";
   import Blog from "./routes/Blog.svelte";
+  import Result from "./routes/Result.svelte";
 
   // Components
   import NavLink from "./components/NavLink.svelte";
@@ -34,6 +35,7 @@
       
     <https://hdl.handle.net/20.500.11840/termmaster16239> skos:narrower* ?cat . # Strijd en oorlog
     # ?cat skos:prefLabel ?catLabel .
+    
     ?cho dct:spatial ?place ;
     dc:type ?type ;
     edm:isShownBy ?imageLink ;
@@ -90,6 +92,7 @@
     <Route path="video" component={Video} />
     <Route path="video2" component={Video2} />
     <Route path="video3" component={Video3} />
+    <Route path="result" component={Result} />
     <Route path="retrieve-data" {results} component={RetrieveData} />
     <Route path="blog/*" component={Blog} />
   </div>

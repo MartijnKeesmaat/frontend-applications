@@ -6,7 +6,7 @@
   onMount(() => {
     spotlightBackground({
       spotSize: 500,
-      backgroundColor: "rgba(0, 0, 0, 0.85)",
+      backgroundColor: "rgba(15, 20, 20, 0.8)",
       gradientColor: [
         "rgba(0, 0, 0, 0.1)",
         "rgba(0, 0, 0, 0.1)",
@@ -289,7 +289,10 @@
 
 <div class="mask-wrapper">
   <canvas id="mask" width="500" height="300" />
-  <img id="bg-img" src="/img/dummy2.jpg" alt="" />
+  <img
+    id="bg-img"
+    src="https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/27654433_764037853794118_4739243479831552770_n.jpg?_nc_cat=108&_nc_oc=AQlDa3nzcVUyWNXYYwZEXB8Kev00AxKqAS7BFDEmsjf5XUh_ovHWoSt79F4l7EvEyRw&_nc_ht=scontent-amt2-1.xx&oh=e76eebc07cb1521fc411076a32b46eb0&oe=5E1871CE"
+    alt="https://www.facebook.com/Kleuruwverleden/" />
 </div>
 
 <section class="video-view">
@@ -308,7 +311,7 @@
       <div class="video-instructions__container">
         <div class="video-instructions">
           <div class="divie">
-            <h3>Maak snapshots van de video, alleen de laatste telt</h3>
+            <h3>Maak snapshots van de video, de laatste neem je mee</h3>
             <button>
               <span class="button-round">
                 <img src="/icons/arrow-solid.svg" alt="" />

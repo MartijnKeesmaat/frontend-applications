@@ -1,13 +1,12 @@
 <script>
   import { onMount } from "svelte";
+  import NavLink from "../components/NavLink.svelte";
   import spotlightBackground from "../functions/spotlightBackground.js";
-
-  console.log("test");
 
   onMount(() => {
     spotlightBackground({
       spotSize: 400,
-      backgroundColor: "rgba(0, 0, 0, 0.9)",
+      backgroundColor: "rgba(5, 5, 5, 0.85)",
       gradientColor: [
         "rgba(0, 0, 0, 0.3)",
         "rgba(0, 0, 0, 0.3)",
@@ -73,7 +72,10 @@
 
 <div class="mask-wrapper">
   <canvas id="mask" width="500" height="300" />
-  <img id="bg-img" src="./img/dummy1.jpg" alt="" />
+  <img
+    id="bg-img"
+    src="https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/66119555_1102391759958724_1637141035295440896_n.jpg?_nc_cat=110&_nc_oc=AQkG3SAsAcfqJVWoJabTflX3U5kM6EWTLyFYbdc1eDBiTA6Kx364OmdiXynaTy3YmyI&_nc_ht=scontent-amt2-1.xx&oh=c40e6640448e035edb073b9e74c43320&oe=5E1D3AA7"
+    alt="https://www.facebook.com/Kleuruwverleden/" />
 </div>
 
 <section class="hero">
@@ -91,7 +93,7 @@
   </div>
 
   <div class="hero__cta">
-    <!-- <NavLink to="video">
+    <NavLink to="video">
       <a href="nou en">
         <span class="button-round">
           <img src="icons/arrow.svg" alt="" />
@@ -101,6 +103,6 @@
           <span class="title-highlight">Je verhaal</span>
         </h3>
       </a>
-    </NavLink> -->
+    </NavLink>
   </div>
 </section>
