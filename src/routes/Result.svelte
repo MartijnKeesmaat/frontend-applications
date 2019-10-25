@@ -229,10 +229,13 @@
             {#if localStorage.getItem('snapshot1') === true}
               <img
                 class="story__moment-img"
-                src={localStorage.getItem('snapshot1')}
+                src={localStorage.getItem('snapshot2')}
                 alt="" />
             {:else}
-              <img class="story__moment-img" src="/img/dummy4.jpg" alt="" />
+              <img
+                class="story__moment-img"
+                src={localStorage.getItem('snapshot2')}
+                alt="" />
             {/if}
             <figcaption>
               Na de uitvinding van de fotografie in 1839 werd de rol van de
