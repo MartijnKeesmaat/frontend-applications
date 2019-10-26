@@ -1,10 +1,27 @@
+![27a72acc257f89714964efb8dfe28f1f](https://user-images.githubusercontent.com/8048514/67623558-04d52000-f827-11e9-87e5-ff73643136e1.gif)
+
 # 📸 Perspective
 
-> An educative interaction
+> Perspective is a project for the [frontend-applications course](https://github.com/cmda-tt/course-19-20/tree/master/frontend-applications) of the [Amsterdam University of Applied Sciences](https://www.hva.nl/)
 
-The goal of Perspective is to educate students by placing them behind the lens. They will take snapshots of certain important moments in history. These snapshots will be combined with data from the [Tropen Museum](https://www.tropenmuseum.nl/) into an storytelling website.
+The goal of the project is to dynamically display data with a front-end framework. My framework of choice is [Svelte](https://svelte.dev).
 
-![a0709ab439210cd67698d4b670b485ab](https://user-images.githubusercontent.com/8048514/67019070-62b58980-f0fc-11e9-82fc-b9b67feade4e.gif)
+My concept is based around the early photographers who were able to tell a story through imagery instead of sketching or the written word. I want to educate other by placing them behind the lens. They will take snapshots of certain important moments in history. These snapshots will be combined with data from the [Tropen Museum](https://www.tropenmuseum.nl/) into an storytelling website.
+
+
+## At its core
+The basic flow revolves around two pages. 
+1. A video in which users are challenged to make the perfect snapshot
+2. These are then displayed on the result page along with a story
+
+### 1. Snapshots  
+![89e2c58bcb7e7fcdbbf9d1d66f7ae356](https://user-images.githubusercontent.com/8048514/67623677-72358080-f828-11e9-8df8-6c20e2676cf0.gif)
+
+![0f3106ff191293a1b8b9cd104ed128ed](https://user-images.githubusercontent.com/8048514/67623655-27b40400-f828-11e9-8fbc-2a4ab1c3127d.gif)
+
+### 2. Result
+![1506bec30d90e37b527198c3c9873ccc](https://user-images.githubusercontent.com/8048514/67623822-0522ea80-f82a-11e9-8bd7-0c414fe60e51.gif)
+
 
 ## Wiki
 Check the [wiki](https://github.com/MartijnKeesmaat/frontend-applications/wiki) for the process
