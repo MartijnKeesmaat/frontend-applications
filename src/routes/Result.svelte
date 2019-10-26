@@ -168,8 +168,8 @@
   <div class="content-scroll">
 
     <section class="story-intro">
-      <h2 class="story-header">The war left it's mark on many families</h2>
-      <h2 class="story-header">Ours was no exception</h2>
+      <h2 class="story-header">De oorlog heeft een grote impact gehad</h2>
+      <h2 class="story-header">Indonesië was niet meer hetzelfde</h2>
     </section>
 
     <section class="story-chapter">
@@ -220,8 +220,8 @@
     </section>
 
     <section class="story-intro">
-      <h2 class="story-header">The war left it's mark on many families</h2>
-      <h2 class="story-header">Ours was no exception</h2>
+      <h2 class="story-header">De oorlog heeft een grote impact gehad</h2>
+      <h2 class="story-header">Indonesië was niet meer hetzelfde</h2>
     </section>
 
     <section class="story-chapter story-chapter--mirror">
@@ -269,8 +269,9 @@
     </section>
 
     <section class="story-intro">
-      <h2 class="story-header">The war left it's mark on many families</h2>
-      <h2 class="story-header">Ours was no exception</h2>
+      <h2 class="story-header">
+        Indonesië was niet meer hetzelfde Indonesië was niet meer hetzelfde
+      </h2>
     </section>
 
     <section class="story-chapter">
@@ -285,7 +286,6 @@
       <div class="story__moment-container">
         <div class="stories">
           <figure class="story__moment">
-            {snapshot3}
             <img class="story__moment-img background" src={snapshot3} alt="" />
             <figcaption>
               Na de uitvinding van de fotografie in 1839 werd de rol van de
