@@ -29,4 +29,5 @@
   videoTitle="Wegversperingen"
   localStorageLink="snapshot2"
   photoCount="02"
-  linksTo="/video3" />
+  linkTo="/video3"
+  linkToText="Bekijk het volgende video fragment" />

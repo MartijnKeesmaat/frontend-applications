@@ -29,4 +29,5 @@
   videoTitle="Marine landing"
   localStorageLink="snapshot1"
   photoCount="01"
-  linksTo="/video2" />
+  linkTo="/video2"
+  linkToText="Bekijk het volgende video fragment" />

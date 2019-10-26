@@ -1,83 +1,23 @@
 <script>
   import { onMount } from "svelte";
   import NavLink from "../components/NavLink.svelte";
+  import VideoMeta from "../components/VideoMeta.svelte";
+  import SnapshotButton from "../components/SnapshotButton.svelte";
+
+  let context, video, canvas, w, h;
   export let videoSrc;
   export let videoTitle;
   export let localStorageLink;
   export let photoCount;
   export let posterSrc;
-  export let linksTo;
+  export let linkTo;
+  export let linkToText;
 
-  let context, video, canvas, w, h;
   let isShowNextVideo = false;
 
   onMount(() => {
-    initVideoSnapshot();
-    playVideo();
     toggleNext();
   });
-
-  // #### VIDEO SNAPSHOT #####
-  // 1. init video & Canvas
-  // 2. draw frame from video on the canvas
-  // 3. Convert the frame to an img(Base64) and store it
-  // 4. Style the img
-  // 5. Add it to the DOM
-  // 6. Clear the canvas
-
-  function initVideoSnapshot() {
-    video = document.querySelector("video");
-    canvas = document.getElementById("snapshot-canvas");
-    context = canvas.getContext("2d");
-    video.addEventListener("loadedmetadata", setCanvasDimensions, false);
-  }
-
-  function setCanvasDimensions() {
-    const ratio = video.videoWidth / video.videoHeight;
-    w = video.videoWidth - 100;
-    h = parseInt(w / ratio, 10);
-    canvas.width = w;
-    canvas.height = h;
-  }
-
-  function takeSnapShot() {
-    drawVideoFrame();
-    const snapshot = getVideoFrameFromCanvas();
-    styleSnapshot(snapshot);
-    addSnapshotToDOM(snapshot);
-    context.clearRect(0, 0, canvas.width, canvas.height);
-  }
-
-  function drawVideoFrame() {
-    context.fillRect(0, 0, w, h);
-    context.drawImage(video, 0, 0, w, h);
-  }
-
-  function getVideoFrameFromCanvas() {
-    const image = canvas
-      .toDataURL("image/png")
-      .replace("image/png", "image/octet-stream");
-    localStorage.setItem(localStorageLink, image);
-    const snapshot = new Image();
-    snapshot.src = image;
-    return snapshot;
-  }
-
-  function styleSnapshot(snapshot) {
-    snapshot.style.border = "2px solid #c7c6c3";
-    snapshot.width = 136;
-    snapshot.height = 91;
-    snapshot.style.position = "absolute";
-    let random = Math.floor(Math.random() * 30) + 1;
-    random *= Math.floor(Math.random() * 2) == 1 ? 1 : -1;
-
-    snapshot.style.transform = `rotate(${random}deg)`;
-  }
-
-  function addSnapshotToDOM(snapshot) {
-    document.querySelector("#snapshots-taken h4").style.opacity = 1;
-    document.querySelector("#snapshots-taken").appendChild(snapshot);
-  }
 
   // #### VIDEO INSTRUCTIONS #####
   function playVideo() {
@@ -142,76 +82,8 @@
     margin-left: 100px;
   }
 
-  .video-meta-description {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .video-title {
-    margin: 20px 0;
-
-    letter-spacing: 4.3px;
-    text-transform: uppercase;
-
-    color: #ffe6a0;
-
-    font-size: 30px;
-    font-weight: 400;
-  }
-
-  .video-count__title {
-    margin: 0;
-    margin-top: 5px;
-
-    letter-spacing: 1.91px;
-    text-transform: uppercase;
-
-    font-size: 15px;
-    font-weight: 400;
-  }
-
-  .video-count__count {
-    margin: 0;
-    margin-top: -5px;
-
-    letter-spacing: 5.3px;
-
-    font-family: "Playfair Display", serif;
-    font-size: 42px;
-    line-height: 1;
-  }
-
   video:focus {
     outline: none;
-  }
-
-  #snap {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 55px;
-    height: 55px;
-
-    cursor: pointer;
-
-    opacity: 0;
-    transition: 0.3s all ease;
-    background: #ffe6a0;
-    box-shadow: 0 0 30px 4px rgba(255, 230, 160, 0.4);
-  }
-
-  #snap:hover {
-    box-shadow: 0 0 30px 6px rgba(255, 230, 160, 0.4);
-  }
-
-  #snap img {
-    width: 20px;
-    height: 28px;
   }
 
   #snapshots-taken {
@@ -314,14 +186,7 @@
   <div class="video-and-snapshot-wrapper">
     <div class="video-wrapper">
 
-      <section class="video-meta-description">
-        <div class="video-count">
-          <h3 class="video-count__title">Foto</h3>
-          <p class="video-count__count">{photoCount}</p>
-        </div>
-
-        <h1 class="video-title">{videoTitle}</h1>
-      </section>
+      <VideoMeta {photoCount} {videoTitle} />
 
       <div class="video-container">
         <div class="video-overlay" on:click={playVideo} id="video-instructions">
@@ -338,10 +203,10 @@
         </div>
 
         {#if isShowNextVideo}
-          <NavLink to={linksTo}>
+          <NavLink to={linkTo}>
             <div class="video-overlay next-video">
               <div class="flex">
-                <h3>Bekijk het volgende video fragment</h3>
+                <h3>{linkToText}</h3>
                 <button>
                   <span class="button-round">
                     <img src="/icons/arrow.svg" alt="" />
@@ -358,9 +223,7 @@
       </div>
 
       {#if !isShowNextVideo}
-        <button id="snap" on:click={takeSnapShot}>
-          <img src="/icons/camera.svg" alt="" />
-        </button>
+        <SnapshotButton {localStorageLink} />
       {/if}
     </div>
 
