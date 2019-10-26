@@ -5,7 +5,6 @@
 
   onMount(() => {
     initVideoSnapshot();
-    getVideoFrameFromCanvas();
     addPrevSnapshots("snapshot1");
     addPrevSnapshots("snapshot2");
   });
