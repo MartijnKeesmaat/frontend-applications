@@ -28,4 +28,5 @@
   posterSrc="/img/poster.jpg"
   videoTitle="Marine landing"
   localStorageLink="snapshot1"
-  photoCount="01" />
+  photoCount="01"
+  linksTo="/video2" />

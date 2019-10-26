@@ -28,4 +28,5 @@
   posterSrc="/img/poster.jpg"
   videoTitle="Wegversperingen"
   localStorageLink="snapshot2"
-  photoCount="02" />
+  photoCount="02"
+  linksTo="/video3" />

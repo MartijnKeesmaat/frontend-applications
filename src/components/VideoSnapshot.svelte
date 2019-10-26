@@ -1,16 +1,19 @@
 <script>
   import { onMount } from "svelte";
+  import NavLink from "../components/NavLink.svelte";
   export let videoSrc;
   export let videoTitle;
   export let localStorageLink;
   export let photoCount;
   export let posterSrc;
+  export let linksTo;
 
   let context, video, canvas, w, h;
+  let isShowNextVideo = false;
 
   onMount(() => {
     initVideoSnapshot();
-    showVideo();
+    playVideo();
     toggleNext();
   });
 
@@ -77,8 +80,8 @@
   }
 
   // #### VIDEO INSTRUCTIONS #####
-  function showVideo() {
-    const videoInstructions = document.querySelector(".video-instructions");
+  function playVideo() {
+    const videoInstructions = document.getElementById("video-instructions");
     const snapButton = document.getElementById("snap");
     const videoPlayer = document.querySelector("video");
 
@@ -99,20 +102,8 @@
     document.querySelector("video").addEventListener("ended", myHandler, false);
 
     function myHandler(e) {
-      const videoInstructions = document.querySelector(".video-instructions");
-      const snapButton = document.getElementById("snap");
       console.log("a");
-      console.log(videoInstructions);
-      snapButton.style.opacity = 0;
-      videoInstructions.style.opacity = 1;
-      videoInstructions.style.visibility = "visible";
-
-      document.querySelector(".video-instructions__container").innerHTML = `
-          <NavLink class="next-video" to="/video2">
-            <h3>Bekijk de volgende video</h3>
-          </NavLink>
-        `;
-      console.log("videoInstructions");
+      isShowNextVideo = true;
     }
   }
 </script>
@@ -127,11 +118,6 @@
     height: 496px;
 
     background: #000;
-  }
-
-  .video-view {
-    position: fixed;
-    z-index: 10;
   }
 
   .video-view {
@@ -246,19 +232,19 @@
     line-height: 1.4;
   }
 
-  .outer-wrapper {
+  .video-and-snapshot-wrapper {
     display: flex;
     align-items: flex-end;
   }
 
-  .video-instructions__container {
+  .video-container {
     position: relative;
 
     width: 100%;
     height: 100%;
   }
 
-  .video-instructions {
+  .video-overlay {
     position: absolute;
     z-index: 10;
     top: 0;
@@ -279,51 +265,24 @@
     cursor: pointer;
   }
 
-  .video-instructions:hover {
+  .video-overlay:hover {
     background: rgba(0, 0, 0, 0.35);
   }
 
-  .video-instructions:hover .button-round {
+  .video-overlay:hover .button-round {
     border: 2px solid rgba(255, 255, 255, 0.6);
   }
 
-  .video-instructions:hover h3 {
+  .video-overlay:hover h3 {
     opacity: 1;
   }
 
-  .next-video {
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    left: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100%;
-    padding-bottom: 30px;
-
-    transition: 0.3s all ease;
-
-    background: rgba(10, 10, 10, 0.7);
-
-    cursor: pointer;
-  }
-
-  .video-instructions button {
+  .video-overlay button {
     border: none;
     background: none;
   }
 
-  .video-instructions .divie {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .video-instructions__container h3 {
+  .video-overlay h3 {
     max-width: 240px;
     margin: 0;
     margin-right: 10px;
@@ -332,6 +291,7 @@
 
     text-align: right;
     letter-spacing: 1px;
+    color: #fff;
 
     font-size: 17px;
     font-weight: 400;
@@ -339,47 +299,69 @@
     opacity: 0.7;
   }
 
-  .video-instructions button img {
+  .video-overlay button img {
     width: 9px;
     height: 14px;
   }
+
+  .next-video .flex {
+    display: flex;
+    align-items: center;
+  }
 </style>
 
-<section class="video-view">
-  <div class="outer-wrapper">
+<article class="video-view">
+  <div class="video-and-snapshot-wrapper">
     <div class="video-wrapper">
 
-      <div class="video-meta-description">
+      <section class="video-meta-description">
         <div class="video-count">
           <h3 class="video-count__title">Foto</h3>
           <p class="video-count__count">{photoCount}</p>
         </div>
 
         <h1 class="video-title">{videoTitle}</h1>
-      </div>
+      </section>
 
-      <div class="video-instructions__container">
-        <div class="video-instructions">
-          <div class="divie">
-            <h3>
-              Maak momentopnames van de gebeurtenis, de laatste zie je straks
-              terug
-            </h3>
-            <button>
-              <span class="button-round">
-                <img src="/icons/arrow-solid.svg" alt="" />
-              </span>
-            </button>
-          </div>
+      <div class="video-container">
+        <div class="video-overlay" on:click={playVideo} id="video-instructions">
+          <h3>
+            Maak momentopnames van de gebeurtenis, de laatste zie je straks
+            terug
+          </h3>
+
+          <button>
+            <span class="button-round">
+              <img src="/icons/arrow-solid.svg" alt="" />
+            </span>
+          </button>
         </div>
+
+        {#if isShowNextVideo}
+          <NavLink to={linksTo}>
+            <div class="video-overlay next-video">
+              <div class="flex">
+                <h3>Bekijk het volgende video fragment</h3>
+                <button>
+                  <span class="button-round">
+                    <img src="/icons/arrow.svg" alt="" />
+                  </span>
+                </button>
+              </div>
+            </div>
+          </NavLink>
+        {/if}
+
         <video poster={posterSrc}>
           <source src={videoSrc} type="video/mp4" />
         </video>
       </div>
 
-      <button id="snap" on:click={takeSnapShot}>
-        <img src="/icons/camera.svg" alt="" />
-      </button>
+      {#if !isShowNextVideo}
+        <button id="snap" on:click={takeSnapShot}>
+          <img src="/icons/camera.svg" alt="" />
+        </button>
+      {/if}
     </div>
 
     <div id="snapshots-taken">
@@ -388,4 +370,4 @@
 
     <canvas id="snapshot-canvas" width="640" height="480" />
   </div>
-</section>
+</article>
