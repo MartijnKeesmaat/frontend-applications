@@ -5,7 +5,7 @@
   import VideoSnapshot from "../components/VideoSnapshot.svelte";
 
   const spotSize = 500;
-  const backgroundColor = "rgba(15, 20, 20, 0.8)";
+  const backgroundColor = "rgba(15, 20, 20, 0.9)";
   const gradientColor = [
     "rgba(0, 0, 0, 0.1)",
     "rgba(0, 0, 0, 0.1)",

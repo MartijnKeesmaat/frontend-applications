@@ -1287,7 +1287,7 @@ const VideoSnapshot = create_ssr_component(($$result, $$props, $$bindings, $$slo
 
 const spotSize$1 = 500;
 
-const backgroundColor$1 = "rgba(15, 20, 20, 0.8)";
+const backgroundColor$1 = "rgba(15, 20, 20, 0.9)";
 
 const Video = create_ssr_component(($$result, $$props, $$bindings, $$slots) => {
 	
@@ -1319,7 +1319,7 @@ const Video = create_ssr_component(($$result, $$props, $$bindings, $$slots) => {
 
 const spotSize$2 = 500;
 
-const backgroundColor$2 = "rgba(15, 20, 20, 0.8)";
+const backgroundColor$2 = "rgba(15, 20, 20, 0.9)";
 
 const Video2 = create_ssr_component(($$result, $$props, $$bindings, $$slots) => {
 	
@@ -1337,8 +1337,8 @@ const Video2 = create_ssr_component(($$result, $$props, $$bindings, $$slots) => 
 	}, {}, {})}
 
 	${validate_component(VideoSnapshot, 'VideoSnapshot').$$render($$result, {
-		videoSrc: "/video/landing-marine.mp4",
-		posterSrc: "/img/poster.jpg",
+		videoSrc: "/video/wegversperingen.mp4",
+		posterSrc: "/img/dummy5.jpg",
 		videoTitle: "Wegversperingen",
 		localStorageLink: "snapshot2",
 		photoCount: "02",
@@ -1351,7 +1351,7 @@ const Video2 = create_ssr_component(($$result, $$props, $$bindings, $$slots) => 
 
 const spotSize$3 = 500;
 
-const backgroundColor$3 = "rgba(15, 20, 20, 0.8)";
+const backgroundColor$3 = "rgba(15, 20, 20, 0.9)";
 
 const Video3 = create_ssr_component(($$result, $$props, $$bindings, $$slots) => {
 	
@@ -1715,7 +1715,7 @@ const App = create_ssr_component(($$result, $$props, $$bindings, $$slots) => {
 
 	  
 	  <div>
-	    ${validate_component(Route, 'Route').$$render($$result, { path: "/", component: Home }, {}, {})}
+	    
 	    ${validate_component(Route, 'Route').$$render($$result, { path: "intro", component: Home }, {}, {})}
 	    ${validate_component(Route, 'Route').$$render($$result, { path: "video", component: Video }, {}, {})}
 	    ${validate_component(Route, 'Route').$$render($$result, { path: "video2", component: Video2 }, {}, {})}

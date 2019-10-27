@@ -5,7 +5,7 @@
   import VideoSnapshot from "../components/VideoSnapshot.svelte";
 
   const spotSize = 500;
-  const backgroundColor = "rgba(15, 20, 20, 0.8)";
+  const backgroundColor = "rgba(15, 20, 20, 0.9)";
   const gradientColor = [
     "rgba(0, 0, 0, 0.1)",
     "rgba(0, 0, 0, 0.1)",
@@ -24,8 +24,8 @@
   backgroundImage="/img/dummy4.jpg" />
 
 <VideoSnapshot
-  videoSrc="/video/landing-marine.mp4"
-  posterSrc="/img/poster.jpg"
+  videoSrc="/video/wegversperingen.mp4"
+  posterSrc="/img/dummy5.jpg"
   videoTitle="Wegversperingen"
   localStorageLink="snapshot2"
   photoCount="02"
