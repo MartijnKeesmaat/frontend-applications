@@ -23,7 +23,7 @@
 
 <style>
   .bg-img {
-    /* background: url("img/dummy4.jpg"); */
+    background: url("/img/dummy4.jpg");
     width: 100vw;
     height: 100vh;
     position: fixed;
