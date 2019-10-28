@@ -79,15 +79,14 @@
     </NavLink>
 
     <div class="main-nav__links">
-      <!-- <NavLink to="video">Video</NavLink> -->
-      <!-- <NavLink to="blog">Blog</NavLink> -->
+      <NavLink to="result">Result</NavLink>
       <NavLink to="retrieve-data">Retrieve Data</NavLink>
     </div>
   </nav>
 
   <!-- Route pages -->
   <div>
-    <!-- <Route path="/" component={Home} /> -->
+    <Route path="/" component={Home} />
     <Route path="intro" component={Home} />
     <Route path="video" component={Video} />
     <Route path="video2" component={Video2} />
