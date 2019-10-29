@@ -40,5 +40,6 @@ The [wiki](https://github.com/MartijnKeesmaat/frontend-applications/wiki) docume
 - [Now](https://zeit.co/)
 
 ## Acknowledgments
-- [Evert45](https://evert45.com), used as inspiration for the result page
+- [The NMVW org.](https://collectie.wereldculturen.nl/), for hosting us and prodiving the data
+- [Evert45](https://evert45.com), for the inspiration of the result page
 
