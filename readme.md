@@ -4,7 +4,7 @@
 
 The goal of the project is to dynamically display data with a front-end framework. My framework of choice is [Svelte](https://svelte.dev).
 
-The concept is based around the early photographers who were able to tell a story through imagery instead of sketches or the written word. I want to educate others by placing them behind the lens. The user can take snapshots of certain important moments in history. These snapshots will be combined with data from the [Tropen Museum](https://www.tropenmuseum.nl/) into an storytelling website.
+The concept is based around the early photographers who were able to tell a story through imagery instead of sketches or the written word. I want to educate others by placing them behind the lens. The user can take snapshots of certain important moments in history. These snapshots will be combined with data from the [Tropen Museum](https://www.tropenmuseum.nl/) into a storytelling website.
 
 ## Demo
 See the the live demo [here](https://frontend-applications.mpkeesmaat.now.sh/)
