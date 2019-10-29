@@ -6,6 +6,8 @@ The goal of the project is to dynamically display data with a front-end framewor
 
 My concept is based around the early photographers who were able to tell a story through imagery instead of sketching or the written word. I want to educate others by placing them behind the lens. The user can take snapshots of certain important moments in history. These snapshots will be combined with data from the [Tropen Museum](https://www.tropenmuseum.nl/) into an storytelling website.
 
+## Demo
+See the the live [demo](https://frontend-applications.mpkeesmaat.now.sh/) here
 
 ## At its core
 The basic flow revolves around two pages. 
@@ -35,6 +37,7 @@ The [wiki](https://github.com/MartijnKeesmaat/frontend-applications/wiki) docume
 - [Svelte](https://svelte.dev)
 - [Svelte routing](https://github.com/EmilTholin/svelte-routing)
 - [Svelte webpack loader](https://github.com/sveltejs/svelte-loader)
+- [Now](https://zeit.co/)
 
 ## Acknowledgments
 - [Evert45](https://evert45.com), used as inspiration for the result page
