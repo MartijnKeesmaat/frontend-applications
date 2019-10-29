@@ -1,5 +1,3 @@
-![](https://badgen.net/badge/%E2%96%B2%20Deploy%20to%20Now/$%20now%MartijnKeesmaat%2Ffrontend-applications/black)
-
 ![27a72acc257f89714964efb8dfe28f1f](https://user-images.githubusercontent.com/8048514/67623558-04d52000-f827-11e9-87e5-ff73643136e1.gif)
 
 # 📸 Perspective
