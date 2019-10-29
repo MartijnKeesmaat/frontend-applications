@@ -9,7 +9,6 @@
   import Video from "./routes/Video.svelte";
   import Video2 from "./routes/Video2.svelte";
   import Video3 from "./routes/Video3.svelte";
-  import Blog from "./routes/Blog.svelte";
   import Result from "./routes/Result.svelte";
 
   // Components
@@ -93,6 +92,5 @@
     <Route path="video3" component={Video3} />
     <Route path="result" component={Result} />
     <Route path="retrieve-data" {results} component={RetrieveData} />
-    <Route path="blog/*" component={Blog} />
   </div>
 </Router>
