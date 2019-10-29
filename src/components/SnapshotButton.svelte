@@ -17,6 +17,7 @@
   // 5. Add it to the DOM
   // 6. Clear the canvas
 
+  // init
   function initVideoSnapshot() {
     video = document.querySelector("video");
     canvas = document.getElementById("snapshot-canvas");
@@ -27,11 +28,12 @@
   function setCanvasDimensions() {
     const ratio = video.videoWidth / video.videoHeight;
     w = video.videoWidth - 100;
-    h = parseInt(w / ratio, 10);
+    h = Math.floor(w / ratio, 10);
     canvas.width = w;
     canvas.height = h;
   }
 
+  // Main function
   function takeSnapShot() {
     drawVideoFrame();
     const snapshot = getVideoFrameFromCanvas();
@@ -40,8 +42,8 @@
     context.clearRect(0, 0, canvas.width, canvas.height);
   }
 
+  // Functionality
   function drawVideoFrame() {
-    context.fillRect(0, 0, w, h);
     context.drawImage(video, 0, 0, w, h);
   }
 
@@ -71,6 +73,7 @@
     document.querySelector("#snapshots-taken").appendChild(snapshot);
   }
 
+  // add snapshots from local storage
   function addPrevSnapshots(snapshot) {
     if (localStorage.getItem(snapshot)) {
       const prevSnapshot = localStorage.getItem(snapshot);

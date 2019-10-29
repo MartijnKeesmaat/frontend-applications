@@ -42,7 +42,6 @@
     document.querySelector("video").addEventListener("ended", myHandler, false);
 
     function myHandler(e) {
-      console.log("a");
       isShowNextVideo = true;
     }
   }
