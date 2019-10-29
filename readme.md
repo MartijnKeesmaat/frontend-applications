@@ -32,7 +32,36 @@ The build tool of choice is webpack along with the [svelte loader](https://githu
 ## Wiki
 The [wiki](https://github.com/MartijnKeesmaat/frontend-applications/wiki) documents the progress of this project. It goes over the process through the stages of the concept, technical research, visual design and prototype.
 
+## Data
+The data that is used comes from the database of the [NMVW collection](https://collectie.wereldculturen.nl/). For the assignment we are asked to use [SPARQL](https://www.w3.org/TR/rdf-sparql-query/) to retrieve the data. For the concept the data we use is from Indonesia and has a war tag. This should be filtered more to only shows photographs around the years of 1945-1947. The data is retrieved through this query below:
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX dc: <http://purl.org/dc/elements/1.1/>
+  PREFIX dct: <http://purl.org/dc/terms/>
+  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+  PREFIX edm: <http://www.europeana.eu/schemas/edm/>
+  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+  SELECT ?cho ?title ?placeName ?description ?imageLink WHERE {
+    <https://hdl.handle.net/20.500.11840/termmaster7745> skos:narrower* ?place . #Ind0
+    ?place skos:prefLabel ?placeName .
+      
+    <https://hdl.handle.net/20.500.11840/termmaster16239> skos:narrower* ?cat . # Strijd en oorlog
+    # ?cat skos:prefLabel ?catLabel .
+    
+    ?cho dct:spatial ?place ;
+    dc:type ?type ;
+    edm:isShownBy ?imageLink ;
+    dc:description ?description ;
+    dc:title ?title .
+    # FILTER langMatches(lang(?title), "ned")
+  }
+  LIMIT 50
+```
+
+
 ## Tech stack
+- [SPARQL](https://www.w3.org/TR/rdf-sparql-query/)
 - [Svelte](https://svelte.dev)
 - [Svelte routing](https://github.com/EmilTholin/svelte-routing)
 - [Svelte webpack loader](https://github.com/sveltejs/svelte-loader)
