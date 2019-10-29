@@ -1,5 +1,3 @@
-![27a72acc257f89714964efb8dfe28f1f](https://user-images.githubusercontent.com/8048514/67623558-04d52000-f827-11e9-87e5-ff73643136e1.gif)
-
 # 📸 Perspective
 
 > Perspective is a project for the [frontend-applications course](https://github.com/cmda-tt/course-19-20/tree/master/frontend-applications) of the [Amsterdam University of Applied Sciences](https://www.hva.nl/)
