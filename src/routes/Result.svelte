@@ -21,6 +21,7 @@
     snapshot3 = localStorage.getItem("snapshot3")
       ? localStorage.getItem("snapshot3")
       : fallbackImg;
+    waitForResults();
   });
 
   const waitForResults = () => {
@@ -31,8 +32,6 @@
     populateData();
   };
 
-  waitForResults();
-
   let chapters = [];
 
   const truncator = (str, words) =>
@@ -42,7 +41,7 @@
       .join(" ");
 
   const removeHTMLFromString = str =>
-    str.replace(/[(<P>)(</P>)(STRONG)]/g, " ");
+    str.replace(/<P>/g, " ").replace(/<STRONG>/g, " ");
 
   function populateData() {
     chapters = [
@@ -118,7 +117,7 @@
       i.moments = i.moments.map((item, j) => {
         return {
           title: item.title,
-          image: item.imageLink,
+          image: item.image,
           description: removeHTMLFromString(truncator(item.description, 40))
         };
       });
@@ -182,52 +181,6 @@
       <h2 class="story-header">Indonesië was niet meer hetzelfde</h2>
     </section>
 
-    <!-- <section class="story-chapter">
-      <div class="story__intro">
-        <h3 class="story__count">
-          <span class="story__current-count">01</span>
-          <span class="story__total-count">/03</span>
-        </h3>
-        <div class="story__chapter-name">Onafhankelijkheid</div>
-      </div>
-
-      <div class="story__moment-container">
-        <div class="stories">
-          <figure class="story__moment background">
-
-            <img class="story__moment-img background" src={snapshot1} alt="" />
-            <figcaption>
-              Na de uitvinding van de fotografie in 1839 werd de rol van de
-              expeditie overgenomen door de fotograaf. Landschappen, mensen en
-              hun leefomstandigheden waren de belangrijkste onderwerpen.
-            </figcaption>
-          </figure>
-
-          <figure class="story__moment">
-            <img
-              class="story__moment-img background"
-              src="/img/dummy5.jpg"
-              alt="" />
-            <figcaption>
-              Na de uitvinding van de fotografie in 1839 werd de rol van de
-              expeditie overgenomen door de fotograaf. Landschappen, mensen en
-              hun leefomstandigheden waren de belangrijkste onderwerpen.
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="stories">
-          <figure class="story__moment">
-            <img class="story__moment-img" src="/img/dummy6.jpg" alt="" />
-            <figcaption>
-              Na de uitvinding van de fotografie in 1839 werd de rol van de
-              expeditie overgenomen door de fotograaf. Landschappen, mensen en
-              hun leefomstandigheden waren de belangrijkste onderwerpen.
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section> -->
     {#if chapters.length > 0}
       <StoryChapter
         isMirrored={chapters[0].isMirrored}
@@ -241,8 +194,6 @@
       <h2 class="story-header">Indonesië was niet meer hetzelfde</h2>
     </section>
 
-    <!-- <StoryChapter /> -->
-
     {#if chapters.length > 0}
       <StoryChapter
         isMirrored={chapters[1].isMirrored}
@@ -250,50 +201,6 @@
         subTitle={chapters[1].subTitle}
         moments={chapters[1].moments} />
     {/if}
-
-    <!-- <section class="story-chapter story-chapter--mirror">
-      <div class="story__intro">
-        <h3 class="story__count">
-          <span class="story__current-count">02</span>
-          <span class="story__total-count">/03</span>
-        </h3>
-        <div class="story__chapter-name">Onafhankelijkheid</div>
-      </div>
-
-      <div class="story__moment-container">
-        <div class="stories">
-          <figure class="story__moment">
-
-            <img class="story__moment-img background" src={snapshot2} alt="" />
-            <figcaption>
-              Na de uitvinding van de fotografie in 1839 werd de rol van de
-              expeditie overgenomen door de fotograaf. Landschappen, mensen en
-              hun leefomstandigheden waren de belangrijkste onderwerpen.
-            </figcaption>
-          </figure>
-
-          <figure class="story__moment">
-            <img class="story__moment-img" src="/img/dummy5.jpg" alt="" />
-            <figcaption>
-              Na de uitvinding van de fotografie in 1839 werd de rol van de
-              expeditie overgenomen door de fotograaf. Landschappen, mensen en
-              hun leefomstandigheden waren de belangrijkste onderwerpen.
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="stories">
-          <figure class="story__moment">
-            <img class="story__moment-img" src="/img/dummy6.jpg" alt="" />
-            <figcaption>
-              Na de uitvinding van de fotografie in 1839 werd de rol van de
-              expeditie overgenomen door de fotograaf. Landschappen, mensen en
-              hun leefomstandigheden waren de belangrijkste onderwerpen.
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section> -->
 
     <section class="story-intro">
       <h2 class="story-header">
@@ -308,8 +215,6 @@
         subTitle={chapters[2].subTitle}
         moments={chapters[2].moments} />
     {/if}
-
-    <!-- <StoryChapter /> -->
 
   </div>
 </div>

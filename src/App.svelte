@@ -5,7 +5,6 @@
 
   // Pages
   import Home from "./routes/Home.svelte";
-  import RetrieveData from "./routes/RetrieveData.svelte";
   import Video from "./routes/Video.svelte";
   import Video2 from "./routes/Video2.svelte";
   import Video3 from "./routes/Video3.svelte";
@@ -82,20 +81,21 @@
     </NavLink>
 
     <div class="main-nav__links">
+      <NavLink to="intro">Intro</NavLink>
+      <NavLink to="video">Video1</NavLink>
+      <NavLink to="video2">Video2</NavLink>
+      <NavLink to="video3">Video3</NavLink>
       <NavLink to="result">Result</NavLink>
-      <NavLink to="retrieve-data">Retrieve Data</NavLink>
     </div>
   </nav>
 
   <!-- Route pages -->
   <div>
-    <!-- <Route path="/" component={Home} /> -->
-    <Route path="/" {results} component={Result} />
+    <Route path="/" component={Home} />
     <Route path="intro" component={Home} />
     <Route path="video" component={Video} />
     <Route path="video2" component={Video2} />
     <Route path="video3" component={Video3} />
-    <Route path="result" component={Result} />
-    <Route path="retrieve-data" {results} component={RetrieveData} />
+    <Route path="result" component={Result} {results} />
   </div>
 </Router>
