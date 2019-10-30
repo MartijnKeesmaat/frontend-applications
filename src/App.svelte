@@ -22,31 +22,30 @@
     "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-20/sparql";
 
   const query = `
-  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-  PREFIX dc: <http://purl.org/dc/elements/1.1/>
-  PREFIX dct: <http://purl.org/dc/terms/>
-  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-  PREFIX edm: <http://www.europeana.eu/schemas/edm/>
-  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX dc: <http://purl.org/dc/elements/1.1/>
+    PREFIX dct: <http://purl.org/dc/terms/>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX edm: <http://www.europeana.eu/schemas/edm/>
+    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-  SELECT ?cho ?title ?placeName ?description ?imageLink WHERE {
-    <https://hdl.handle.net/20.500.11840/termmaster7745> skos:narrower* ?place . #Indonesie
-    ?place skos:prefLabel ?placeName .
+    SELECT ?cho (SAMPLE(?title) as ?title) ?placeName (SAMPLE(?description) as ?description) (SAMPLE(?imageLink) as ?imageLink) WHERE {
+      <https://hdl.handle.net/20.500.11840/termmaster7745> skos:narrower* ?place . #Indonesie
+      ?place skos:prefLabel ?placeName .
+      
+      VALUES ?type { "Foto" "foto" "Negatief" "negatief" "Glasnegatief" "glasnegatief" "Dia" "dia" "Kleurendia" "kleurendia" "Lichtbeeld" "lichtbeeld"}
     
-    VALUES ?type { "Foto" "foto" "Negatief" "negatief" "Glasnegatief" "glasnegatief" "Dia" "dia" "Kleurendia" "kleurendia" "Lichtbeeld" "lichtbeeld"}
-
-    <https://hdl.handle.net/20.500.11840/termmaster16239> skos:narrower* ?cat . # Strijd en oorlog
-    # ?cat skos:prefLabel ?catLabel .
-    
-    ?cho dct:spatial ?place ;
-    dc:type ?type ;
-    edm:isShownBy ?imageLink ;
-    dc:description ?description ;
-    dc:title ?title .
-    # FILTER langMatches(lang(?title), "ned")
-  }
-  LIMIT 50
-
+      <https://hdl.handle.net/20.500.11840/termmaster16239> skos:narrower* ?cat . # Strijd en oorlog
+      # ?cat skos:prefLabel ?catLabel .
+      
+      ?cho dct:spatial ?place ;
+      dc:type ?type ;
+      edm:isShownBy ?imageLink ;
+      dc:description ?description ;
+      dc:title ?title .
+      # FILTER langMatches(lang(?title), "ned")
+    }
+    LIMIT 50
   `;
   let results = [];
 
@@ -58,8 +57,10 @@
         results = JSON.parse(JSON.stringify(json.results));
         results = results.bindings;
         results = results.map((result, index) => {
+          console.log(results);
           return {
             id: index,
+            cho: result.cho.value,
             description: result.description.value,
             imageLink: result.imageLink.value,
             title: result.title.value,

@@ -1,5 +1,29 @@
 <script>
+  import { onMount } from "svelte";
   export let results;
+
+  const waitForResults = () => {
+    if (results.length === 0) {
+      setTimeout(waitForResults, 50);
+      return;
+    }
+    handleResults();
+  };
+
+  waitForResults();
+  let photos = [];
+
+  function handleResults() {
+    console.log(results);
+    let data = [...results];
+
+    function removeDuplicates(array, key) {
+      let lookup = new Set();
+      return array.filter(obj => !lookup.has(obj[key]) && lookup.add(obj[key]));
+    }
+    photos = removeDuplicates(data, "imageLink");
+    // console.log(photos);
+  }
 </script>
 
 {#if results.length > 0}
