@@ -33,8 +33,8 @@
       <https://hdl.handle.net/20.500.11840/termmaster7745> skos:narrower* ?place . #Indonesie
       ?place skos:prefLabel ?placeName .
       
-      VALUES ?type { "Foto" "foto" "Negatief" "negatief" "Glasnegatief" "glasnegatief" "Dia" "dia" "Kleurendia" "kleurendia" "Lichtbeeld" "lichtbeeld"}
-    
+      VALUES ?type { "Foto" "foto / ansichtkaart" "Panoramafoto" "foto op karton" "foto / carte-de-visite" "Stereofoto" "stereofoto" "fotoalbum" "fotomech druk: prentbriefkaart kleur" "foto's" "foto" "Negatief" "negatief" "Glasnegatief" "glasnegatief" "Dia" "dia" "Kleurendia" "kleurendia" "Lichtbeeld" "lichtbeeld"}
+
       <https://hdl.handle.net/20.500.11840/termmaster16239> skos:narrower* ?cat . # Strijd en oorlog
       # ?cat skos:prefLabel ?catLabel .
       
@@ -45,7 +45,7 @@
       dc:title ?title .
       # FILTER langMatches(lang(?title), "ned")
     }
-    LIMIT 50
+    LIMIT 100
   `;
   let results = [];
 
@@ -57,7 +57,6 @@
         results = JSON.parse(JSON.stringify(json.results));
         results = results.bindings;
         results = results.map((result, index) => {
-          console.log(results);
           return {
             id: index,
             cho: result.cho.value,
@@ -91,7 +90,7 @@
   <!-- Route pages -->
   <div>
     <!-- <Route path="/" component={Home} /> -->
-    <Route path="/" {results} component={RetrieveData} />
+    <Route path="/" {results} component={Result} />
     <Route path="intro" component={Home} />
     <Route path="video" component={Video} />
     <Route path="video2" component={Video2} />

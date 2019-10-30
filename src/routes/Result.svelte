@@ -1,5 +1,7 @@
 <script>
+  import StoryChapter from "../components/StoryChapter.svelte";
   import { onMount } from "svelte";
+
   const fallbackImg = "../img/dummy3.jpg";
 
   let snapshot1 = fallbackImg;
@@ -19,6 +21,34 @@
       ? localStorage.getItem("snapshot3")
       : fallbackImg;
   });
+
+  const chapters = [
+    {
+      isMirrored: true,
+      currentChapter: "02",
+      subTitle: "onafhankelijkheid",
+      moments: [
+        {
+          title: "title",
+          image: snapshot3,
+          description:
+            "1Na de uitvinding van de fotografie in 1839 werd de rol van de expeditie overgenomen door de fotograaf. Landschappen, mensen en hun leefomstandigheden waren de belangrijkste onderwerpen."
+        },
+        {
+          title: "title",
+          image: "../img/dummy4.jpg",
+          description:
+            "2Na de uitvinding van de fotografie in 1839 werd de rol van de expeditie overgenomen door de fotograaf. Landschappen, mensen en hun leefomstandigheden waren de belangrijkste onderwerpen."
+        },
+        {
+          title: "title",
+          image: "../img/dummy5.jpg",
+          description:
+            "3Na de uitvinding van de fotografie in 1839 werd de rol van de expeditie overgenomen door de fotograaf. Landschappen, mensen en hun leefomstandigheden waren de belangrijkste onderwerpen."
+        }
+      ]
+    }
+  ];
 </script>
 
 <style>
@@ -65,101 +95,6 @@
     padding-bottom: 10vh;
     padding-top: 15vh;
   }
-
-  .content-scroll:hover {
-    -webkit-animation-play-state: paused;
-    -moz-animation-play-state: paused;
-    -o-animation-play-state: paused;
-    animation-play-state: paused;
-  }
-
-  @keyframes scroll-page {
-    from {
-      transform: translateY(0);
-    }
-
-    to {
-      transform: translateY(-50%);
-    }
-  }
-
-  .story-chapter {
-    margin-top: 50px;
-  }
-
-  .story-chapter--mirror .story__intro {
-    margin-left: 30px;
-  }
-
-  .story-chapter--mirror .story__moment-container {
-    flex-direction: row-reverse;
-  }
-
-  .story__count {
-    margin: 0;
-    line-height: 1;
-  }
-  .story__current-count {
-    font-size: 338px;
-    color: #ffe6a0;
-    font-weight: 300;
-    letter-spacing: -9px;
-  }
-  .story__total-count {
-    font-size: 68px;
-    font-weight: 300;
-    color: #fff;
-    padding-left: 20px;
-  }
-
-  .story__chapter-name {
-    text-transform: uppercase;
-    font-style: italic;
-    font-weight: 600;
-    letter-spacing: 4px;
-    font-size: 20px;
-    color: #fff;
-    margin-left: 20px;
-    margin-top: 5px;
-  }
-
-  .story__intro:nth-child(1) {
-    margin-left: calc(50% + 30px);
-  }
-
-  .story__moment-container {
-    display: flex;
-  }
-
-  .story-intro {
-    margin: 80px 0;
-  }
-
-  .stories:last-child {
-    padding-top: 25%;
-  }
-
-  .story__moment {
-    max-width: 517px;
-    margin: 40px;
-    margin-bottom: 70px;
-  }
-
-  .story__moment-img {
-    max-width: 100%;
-    object-fit: cover;
-    max-height: 300px;
-    width: 100%;
-  }
-
-  .story__moment figcaption {
-    color: #fff;
-    font-size: 16px;
-    font-family: "Source Sans Pro", sans-serif;
-    line-height: 1.5;
-    margin-top: 7px;
-    opacity: 0.85;
-  }
 </style>
 
 <div class="bg-img" />
@@ -172,7 +107,7 @@
       <h2 class="story-header">Indonesië was niet meer hetzelfde</h2>
     </section>
 
-    <section class="story-chapter">
+    <!-- <section class="story-chapter">
       <div class="story__intro">
         <h3 class="story__count">
           <span class="story__current-count">01</span>
@@ -217,14 +152,22 @@
           </figure>
         </div>
       </div>
-    </section>
+    </section> -->
+
+    <StoryChapter
+      isMirrored={chapters[0].isMirrored}
+      currentChapter={chapters[0].currentChapter}
+      subTitle={chapters[0].subTitle}
+      moments={chapters[0].moments} />
 
     <section class="story-intro">
       <h2 class="story-header">De oorlog heeft een grote impact gehad</h2>
       <h2 class="story-header">Indonesië was niet meer hetzelfde</h2>
     </section>
 
-    <section class="story-chapter story-chapter--mirror">
+    <!-- <StoryChapter /> -->
+
+    <!-- <section class="story-chapter story-chapter--mirror">
       <div class="story__intro">
         <h3 class="story__count">
           <span class="story__current-count">02</span>
@@ -266,7 +209,7 @@
           </figure>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="story-intro">
       <h2 class="story-header">
@@ -274,49 +217,7 @@
       </h2>
     </section>
 
-    <section class="story-chapter">
-      <div class="story__intro">
-        <h3 class="story__count">
-          <span class="story__current-count">03</span>
-          <span class="story__total-count">/03</span>
-        </h3>
-        <div class="story__chapter-name">Onafhankelijkheid</div>
-      </div>
-
-      <div class="story__moment-container">
-        <div class="stories">
-          <figure class="story__moment">
-            <img class="story__moment-img background" src={snapshot3} alt="" />
-            <figcaption>
-              Na de uitvinding van de fotografie in 1839 werd de rol van de
-              expeditie overgenomen door de fotograaf. Landschappen, mensen en
-              hun leefomstandigheden waren de belangrijkste onderwerpen.
-            </figcaption>
-          </figure>
-
-          <figure class="story__moment">
-            <img class="story__moment-img" src="/img/dummy5.jpg" alt="" />
-            <figcaption>
-              Na de uitvinding van de fotografie in 1839 werd de rol van de
-              expeditie overgenomen door de fotograaf. Landschappen, mensen en
-              hun leefomstandigheden waren de belangrijkste onderwerpen.
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="stories">
-          <figure class="story__moment">
-            <img class="story__moment-img" src="/img/dummy6.jpg" alt="" />
-            <figcaption>
-              Na de uitvinding van de fotografie in 1839 werd de rol van de
-              expeditie overgenomen door de fotograaf. Landschappen, mensen en
-              hun leefomstandigheden waren de belangrijkste onderwerpen.
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-
-    </section>
+    <!-- <StoryChapter /> -->
 
   </div>
 </div>
