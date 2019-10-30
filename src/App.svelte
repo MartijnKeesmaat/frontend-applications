@@ -28,10 +28,13 @@
   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
   PREFIX edm: <http://www.europeana.eu/schemas/edm/>
   PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
   SELECT ?cho ?title ?placeName ?description ?imageLink WHERE {
-    <https://hdl.handle.net/20.500.11840/termmaster7745> skos:narrower* ?place . #Ind0
+    <https://hdl.handle.net/20.500.11840/termmaster7745> skos:narrower* ?place . #Indonesie
     ?place skos:prefLabel ?placeName .
-      
+    
+    VALUES ?type { "Foto" "foto" "Negatief" "negatief" "Glasnegatief" "glasnegatief" "Dia" "dia" "Kleurendia" "kleurendia" "Lichtbeeld" "lichtbeeld"}
+
     <https://hdl.handle.net/20.500.11840/termmaster16239> skos:narrower* ?cat . # Strijd en oorlog
     # ?cat skos:prefLabel ?catLabel .
     
@@ -43,6 +46,7 @@
     # FILTER langMatches(lang(?title), "ned")
   }
   LIMIT 50
+
   `;
   let results = [];
 
@@ -85,7 +89,8 @@
 
   <!-- Route pages -->
   <div>
-    <Route path="/" component={Home} />
+    <!-- <Route path="/" component={Home} /> -->
+    <Route path="/" {results} component={RetrieveData} />
     <Route path="intro" component={Home} />
     <Route path="video" component={Video} />
     <Route path="video2" component={Video2} />
