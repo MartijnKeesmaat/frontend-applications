@@ -41,6 +41,14 @@ nav {
 
   width: 100%;
   padding: 0 30px;
+
+  transition: 0.3s all ease;
+
+  opacity: 0;
+}
+
+nav:hover {
+  opacity: 1;
 }
 
 .main-nav__links a {
