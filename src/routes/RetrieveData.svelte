@@ -14,7 +14,6 @@
   let photos = [];
 
   function handleResults() {
-    console.log(results);
     let data = [...results];
 
     // https://firstclassjs.com/remove-duplicate-objects-from-javascript-array-how-to-performance-comparison/
@@ -23,7 +22,6 @@
       return array.filter(obj => !lookup.has(obj[key]) && lookup.add(obj[key]));
     }
     photos = removeDuplicates(data, "imageLink");
-    // console.log(photos);
   }
 </script>
 

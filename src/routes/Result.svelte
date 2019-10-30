@@ -4,6 +4,7 @@
 
   const fallbackImg = "../img/dummy3.jpg";
 
+  export let results;
   let snapshot1 = fallbackImg;
   let snapshot2 = fallbackImg;
   let snapshot3 = fallbackImg;
@@ -22,33 +23,94 @@
       : fallbackImg;
   });
 
-  const chapters = [
-    {
-      isMirrored: true,
-      currentChapter: "02",
-      subTitle: "onafhankelijkheid",
-      moments: [
-        {
-          title: "title",
-          image: snapshot3,
-          description:
-            "1Na de uitvinding van de fotografie in 1839 werd de rol van de expeditie overgenomen door de fotograaf. Landschappen, mensen en hun leefomstandigheden waren de belangrijkste onderwerpen."
-        },
-        {
-          title: "title",
-          image: "../img/dummy4.jpg",
-          description:
-            "2Na de uitvinding van de fotografie in 1839 werd de rol van de expeditie overgenomen door de fotograaf. Landschappen, mensen en hun leefomstandigheden waren de belangrijkste onderwerpen."
-        },
-        {
-          title: "title",
-          image: "../img/dummy5.jpg",
-          description:
-            "3Na de uitvinding van de fotografie in 1839 werd de rol van de expeditie overgenomen door de fotograaf. Landschappen, mensen en hun leefomstandigheden waren de belangrijkste onderwerpen."
-        }
-      ]
+  const waitForResults = () => {
+    if (results.length === 0) {
+      setTimeout(waitForResults, 50);
+      return;
     }
-  ];
+    populateData();
+  };
+
+  waitForResults();
+  let chapters = [];
+
+  const truncator = (str, words) =>
+    str
+      .split(" ")
+      .splice(0, words)
+      .join(" ");
+
+  function populateData() {
+    console.log(results);
+    chapters = [
+      {
+        isMirrored: false,
+        currentChapter: "01",
+        subTitle: "Landing marine",
+        moments: [
+          {
+            title: results[0].title,
+            image: snapshot1,
+            description: truncator(results[0].description, 40)
+          },
+          {
+            title: results[1].title,
+            image: results[1].imageLink,
+            description: truncator(results[1].description, 40)
+          },
+          {
+            title: results[2].title,
+            image: results[2].imageLink,
+            description: truncator(results[2].description, 40)
+          }
+        ]
+      },
+      {
+        isMirrored: true,
+        currentChapter: "02",
+        subTitle: "Wegversperingen",
+        moments: [
+          {
+            title: results[3].title,
+            image: snapshot2,
+            description: truncator(results[3].description, 40)
+          },
+          {
+            title: results[4].title,
+            image: results[4].imageLink,
+            description: truncator(results[4].description, 40)
+          },
+          {
+            title: results[5].title,
+            image: results[5].imageLink,
+            description: truncator(results[5].description, 40)
+          }
+        ]
+      },
+      {
+        isMirrored: false,
+        currentChapter: "03",
+        subTitle: "Honger",
+        moments: [
+          {
+            title: results[6].title,
+            image: snapshot3,
+            description: truncator(results[6].description, 40)
+          },
+          {
+            title: results[9].title,
+            image: results[9].imageLink,
+            description: truncator(results[9].description, 40)
+          },
+          {
+            title: results[7].title,
+            image: results[7].imageLink,
+            description: truncator(results[7].description, 40)
+          }
+        ]
+      }
+    ];
+  }
 </script>
 
 <style>
@@ -153,12 +215,13 @@
         </div>
       </div>
     </section> -->
-
-    <StoryChapter
-      isMirrored={chapters[0].isMirrored}
-      currentChapter={chapters[0].currentChapter}
-      subTitle={chapters[0].subTitle}
-      moments={chapters[0].moments} />
+    {#if chapters.length > 0}
+      <StoryChapter
+        isMirrored={chapters[0].isMirrored}
+        currentChapter={chapters[0].currentChapter}
+        subTitle={chapters[0].subTitle}
+        moments={chapters[0].moments} />
+    {/if}
 
     <section class="story-intro">
       <h2 class="story-header">De oorlog heeft een grote impact gehad</h2>
@@ -166,6 +229,14 @@
     </section>
 
     <!-- <StoryChapter /> -->
+
+    {#if chapters.length > 0}
+      <StoryChapter
+        isMirrored={chapters[1].isMirrored}
+        currentChapter={chapters[1].currentChapter}
+        subTitle={chapters[1].subTitle}
+        moments={chapters[1].moments} />
+    {/if}
 
     <!-- <section class="story-chapter story-chapter--mirror">
       <div class="story__intro">
@@ -216,6 +287,14 @@
         Indonesië was niet meer hetzelfde Indonesië was niet meer hetzelfde
       </h2>
     </section>
+
+    {#if chapters.length > 2}
+      <StoryChapter
+        isMirrored={chapters[2].isMirrored}
+        currentChapter={chapters[2].currentChapter}
+        subTitle={chapters[2].subTitle}
+        moments={chapters[2].moments} />
+    {/if}
 
     <!-- <StoryChapter /> -->
 
