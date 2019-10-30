@@ -32,6 +32,7 @@
   };
 
   waitForResults();
+
   let chapters = [];
 
   const truncator = (str, words) =>
@@ -40,8 +41,10 @@
       .splice(0, words)
       .join(" ");
 
+  const removeHTMLFromString = str =>
+    str.replace(/[(<P>)(</P>)(STRONG)]/g, " ");
+
   function populateData() {
-    console.log(results);
     chapters = [
       {
         isMirrored: false,
@@ -51,17 +54,17 @@
           {
             title: results[0].title,
             image: snapshot1,
-            description: truncator(results[0].description, 40)
+            description: results[0].description
           },
           {
             title: results[1].title,
             image: results[1].imageLink,
-            description: truncator(results[1].description, 40)
+            description: results[1].description
           },
           {
             title: results[2].title,
             image: results[2].imageLink,
-            description: truncator(results[2].description, 40)
+            description: results[2].description
           }
         ]
       },
@@ -73,17 +76,17 @@
           {
             title: results[3].title,
             image: snapshot2,
-            description: truncator(results[3].description, 40)
+            description: results[3].description
           },
           {
             title: results[4].title,
             image: results[4].imageLink,
-            description: truncator(results[4].description, 40)
+            description: results[4].description
           },
           {
             title: results[5].title,
             image: results[5].imageLink,
-            description: truncator(results[5].description, 40)
+            description: results[5].description
           }
         ]
       },
@@ -95,21 +98,31 @@
           {
             title: results[6].title,
             image: snapshot3,
-            description: truncator(results[6].description, 40)
+            description: results[6].description
           },
           {
             title: results[9].title,
             image: results[9].imageLink,
-            description: truncator(results[9].description, 40)
+            description: results[9].description
           },
           {
             title: results[7].title,
             image: results[7].imageLink,
-            description: truncator(results[7].description, 40)
+            description: results[7].description
           }
         ]
       }
     ];
+
+    chapters.forEach(i => {
+      i.moments = i.moments.map((item, j) => {
+        return {
+          title: item.title,
+          image: item.imageLink,
+          description: removeHTMLFromString(truncator(item.description, 40))
+        };
+      });
+    });
   }
 </script>
 
