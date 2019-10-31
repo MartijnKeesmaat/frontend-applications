@@ -1,5 +1,6 @@
 <script>
   import StoryChapter from "../components/StoryChapter.svelte";
+  import backupData from "../functions/backupData.js";
   import { onMount } from "svelte";
 
   const fallbackImg = "../img/dummy3.jpg";
@@ -24,6 +25,7 @@
     waitForResults();
   });
 
+  // https://stackoverflow.com/questions/3635924/how-can-i-make-a-program-wait-for-a-variable-change-in-javascript
   const waitForResults = () => {
     if (results.length === 0) {
       setTimeout(waitForResults, 50);
@@ -43,7 +45,7 @@
   const removeHTMLFromString = str =>
     str.replace(/<P>/g, " ").replace(/<STRONG>/g, " ");
 
-  function populateData() {
+  const populateData = () => {
     chapters = [
       {
         isMirrored: false,
@@ -113,6 +115,8 @@
       }
     ];
 
+    chapters = backupData();
+
     chapters.forEach(i => {
       i.moments = i.moments.map((item, j) => {
         return {
@@ -122,7 +126,7 @@
         };
       });
     });
-  }
+  };
 </script>
 
 <style>
@@ -162,12 +166,17 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 1020px;
+    width: 100%;
     overflow: scroll;
     max-height: 90vh;
     margin-top: 10vh;
     padding-bottom: 10vh;
     padding-top: 15vh;
+  }
+
+  .content-scroll {
+    max-width: 950px;
+    margin: 0 auto;
   }
 </style>
 

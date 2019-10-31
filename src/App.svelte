@@ -14,7 +14,7 @@
   import NavLink from "./components/NavLink.svelte";
 
   // Used for routing
-  export let url = ""; // Used for SSR. A falsy value is ignored by the Router.
+  export let url = "";
 
   // Specify which data is retrieved
   const queryUrl =
@@ -49,7 +49,7 @@
   let results = [];
 
   // Fetch data & clean it
-  function runQuery(queryUrl, query) {
+  const runQuery = (queryUrl, query) => {
     fetch(queryUrl + "?query=" + encodeURIComponent(query) + "&format=json")
       .then(res => res.json())
       .then(json => {
@@ -66,7 +66,7 @@
           };
         });
       });
-  }
+  };
 
   onMount(() => {
     runQuery(queryUrl, query);

@@ -18,36 +18,37 @@
   // 6. Clear the canvas
 
   // init
-  function initVideoSnapshot() {
+  const initVideoSnapshot = () => {
     video = document.querySelector("video");
     canvas = document.getElementById("snapshot-canvas");
     context = canvas.getContext("2d");
     video.addEventListener("loadedmetadata", setCanvasDimensions, false);
-  }
+  };
 
-  function setCanvasDimensions() {
+  const setCanvasDimensions = () => {
     const ratio = video.videoWidth / video.videoHeight;
     w = video.videoWidth - 100;
     h = Math.floor(w / ratio, 10);
     canvas.width = w;
     canvas.height = h;
-  }
+  };
 
   // Main function
-  function takeSnapShot() {
+  const takeSnapShot = () => {
     drawVideoFrame();
     const snapshot = getVideoFrameFromCanvas();
     styleSnapshot(snapshot);
     addSnapshotToDOM(snapshot);
     context.clearRect(0, 0, canvas.width, canvas.height);
-  }
+  };
 
   // Functionality
-  function drawVideoFrame() {
+  const drawVideoFrame = () => {
     context.drawImage(video, 0, 0, w, h);
-  }
+  };
 
-  function getVideoFrameFromCanvas() {
+  // https://stackoverflow.com/questions/13760805/how-to-take-a-snapshot-of-html5-javascript-based-video-player
+  const getVideoFrameFromCanvas = () => {
     const image = canvas
       .toDataURL("image/png")
       .replace("image/png", "image/octet-stream");
@@ -55,26 +56,27 @@
     const snapshot = new Image();
     snapshot.src = image;
     return snapshot;
-  }
+  };
 
-  function styleSnapshot(snapshot) {
+  const styleSnapshot = snapshot => {
     snapshot.style.border = "2px solid #c7c6c3";
     snapshot.width = 136;
     snapshot.height = 91;
     snapshot.style.position = "absolute";
+    //stackoverflow.com/questions/13455042/random-number-between-negative-and-positive-value
     let random = Math.floor(Math.random() * 30) + 1;
     random *= Math.floor(Math.random() * 2) == 1 ? 1 : -1;
 
-    snapshot.style.transform = `rotate(${random}deg)`;
-  }
+    https: snapshot.style.transform = `rotate(${random}deg)`;
+  };
 
-  function addSnapshotToDOM(snapshot) {
+  const addSnapshotToDOM = snapshot => {
     document.querySelector("#snapshots-taken h4").style.opacity = 1;
     document.querySelector("#snapshots-taken").appendChild(snapshot);
-  }
+  };
 
   // add snapshots from local storage
-  function addPrevSnapshots(snapshot) {
+  const addPrevSnapshots = snapshot => {
     if (localStorage.getItem(snapshot)) {
       const prevSnapshot = localStorage.getItem(snapshot);
       const snapshotImg = new Image();
@@ -82,7 +84,7 @@
       styleSnapshot(snapshotImg);
       addSnapshotToDOM(snapshotImg);
     }
-  }
+  };
 </script>
 
 <style>

@@ -20,12 +20,12 @@
   });
 
   // #### VIDEO INSTRUCTIONS #####
-  function playVideo() {
+  const playVideo = () => {
     const videoInstructions = document.getElementById("video-instructions");
     const snapButton = document.getElementById("snap");
     const videoPlayer = document.querySelector("video");
 
-    function toggleVideoClass() {
+    const toggleVideoClass = () => {
       videoInstructions.style.opacity = 0;
       videoInstructions.style.visibility = "hidden";
       videoPlayer.play();
@@ -33,23 +33,26 @@
       setTimeout(function() {
         snapButton.style.opacity = 1;
       }, 1200);
-    }
+    };
 
     videoInstructions.addEventListener("click", toggleVideoClass);
-  }
+  };
 
-  function toggleNext() {
-    document.querySelector("video").addEventListener("ended", myHandler, false);
-
-    function myHandler(e) {
-      isShowNextVideo = true;
-    }
-  }
+  const toggleNext = () => {
+    document.querySelector("video").addEventListener(
+      "ended",
+      function() {
+        isShowNextVideo = true;
+      },
+      false
+    );
+  };
 </script>
 
 <style>
   #snapshot-canvas {
     position: fixed;
+    z-index: -1;
   }
 
   video {

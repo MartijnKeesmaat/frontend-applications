@@ -4,7 +4,7 @@
   import SpotlightBackground from "../components/SpotlightBackground.svelte";
 
   const spotSize = 400;
-  const backgroundColor = "rgba(10, 12, 20, 0.85)";
+  const backgroundColor = "rgba(10, 12, 20, 0.95)";
   const gradientColor = [
     "rgba(0, 0, 0, 0.3)",
     "rgba(0, 0, 0, 0.3)",
