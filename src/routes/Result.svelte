@@ -152,7 +152,7 @@
     font-size: 58px;
     color: #fff;
     font-weight: 300;
-    max-width: 600px;
+    max-width: 610px;
     margin: 0 auto;
     margin-bottom: 40px;
   }
@@ -175,7 +175,7 @@
   }
 
   .content-scroll {
-    max-width: 950px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 </style>
@@ -186,8 +186,9 @@
   <div class="content-scroll">
 
     <section class="story-intro">
-      <h2 class="story-header">De oorlog heeft een grote impact gehad</h2>
-      <h2 class="story-header">Indonesië was niet meer hetzelfde</h2>
+      <h2 class="story-header">
+        Op 21 july 1947 lande de Amerikaanse mariniers
+      </h2>
     </section>
 
     {#if chapters.length > 0}
@@ -199,8 +200,9 @@
     {/if}
 
     <section class="story-intro">
-      <h2 class="story-header">De oorlog heeft een grote impact gehad</h2>
-      <h2 class="story-header">Indonesië was niet meer hetzelfde</h2>
+      <h2 class="story-header">
+        Er waren vele wegversperingen die in de weg stonden
+      </h2>
     </section>
 
     {#if chapters.length > 0}
@@ -212,9 +214,8 @@
     {/if}
 
     <section class="story-intro">
-      <h2 class="story-header">
-        Indonesië was niet meer hetzelfde Indonesië was niet meer hetzelfde
-      </h2>
+      <h2 class="story-header">De hulpmidellen van de bevolking raakte op</h2>
+      <h2 class="story-header">Honger was een probleem van vele</h2>
     </section>
 
     {#if chapters.length > 2}
