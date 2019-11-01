@@ -14,6 +14,7 @@
     snapshot1 = localStorage.getItem("snapshot1")
       ? localStorage.getItem("snapshot1")
       : fallbackImg;
+    // console.log(snapshot1);
 
     snapshot2 = localStorage.getItem("snapshot2")
       ? localStorage.getItem("snapshot2")

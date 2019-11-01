@@ -7,19 +7,18 @@ export default function data() {
   let snapshot2 = fallbackImg;
   let snapshot3 = fallbackImg;
 
-  onMount(() => {
-    snapshot1 = localStorage.getItem('snapshot1')
-      ? localStorage.getItem('snapshot1')
-      : fallbackImg;
+  snapshot1 = localStorage.getItem('snapshot1')
+    ? localStorage.getItem('snapshot1')
+    : fallbackImg;
+  console.log(snapshot1);
 
-    snapshot2 = localStorage.getItem('snapshot2')
-      ? localStorage.getItem('snapshot2')
-      : fallbackImg;
+  snapshot2 = localStorage.getItem('snapshot2')
+    ? localStorage.getItem('snapshot2')
+    : fallbackImg;
 
-    snapshot3 = localStorage.getItem('snapshot3')
-      ? localStorage.getItem('snapshot3')
-      : fallbackImg;
-  });
+  snapshot3 = localStorage.getItem('snapshot3')
+    ? localStorage.getItem('snapshot3')
+    : fallbackImg;
 
   return [
     {
@@ -29,7 +28,7 @@ export default function data() {
       moments: [
         {
           title: 'title',
-          image: snapshot3,
+          image: snapshot1,
           description:
             '1Na de uitvinding van de fotografie in 1839 werd de rol van de expeditie overgenomen door de fotograaf. Landschappen, mensen en hun leefomstandigheden waren de belangrijkste onderwerpen.'
         },
@@ -54,7 +53,7 @@ export default function data() {
       moments: [
         {
           title: 'title',
-          image: snapshot3,
+          image: snapshot2,
           description:
             '1Na de uitvinding van de fotografie in 1839 werd de rol van de expeditie overgenomen door de fotograaf. Landschappen, mensen en hun leefomstandigheden waren de belangrijkste onderwerpen.'
         },
