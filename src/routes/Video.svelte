@@ -19,7 +19,7 @@
   {gradientColor}
   spotSize="500"
   backgroundColor="rgba(15, 20, 20, 0.9)"
-  backgroundImage="https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/27654433_764037853794118_4739243479831552770_n.jpg?_nc_cat=108&_nc_oc=AQlDa3nzcVUyWNXYYwZEXB8Kev00AxKqAS7BFDEmsjf5XUh_ovHWoSt79F4l7EvEyRw&_nc_ht=scontent-amt2-1.xx&oh=e76eebc07cb1521fc411076a32b46eb0&oe=5E1871CE" />
+  backgroundImage="https://scontent-ams4-1.xx.fbcdn.net/v/t1.0-9/66210260_1102391746625392_5411783231047467008_o.jpg?_nc_cat=100&_nc_oc=AQn8zZscQiYLhIAUv6wse-edQaEQjZHdxw-a9XNZv_QWt5erWO1SNBqq35RhIhHNEbw&_nc_ht=scontent-ams4-1.xx&oh=93c946434c48a8a50550491c75bf8a95&oe=5ED5A849" />
 
 <VideoSnapshot
   videoSrc="/video/landing-marine.mp4"

@@ -70,7 +70,7 @@
   {spotSize}
   {backgroundColor}
   {gradientColor}
-  backgroundImage="https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/66119555_1102391759958724_1637141035295440896_n.jpg?_nc_cat=110&_nc_oc=AQkG3SAsAcfqJVWoJabTflX3U5kM6EWTLyFYbdc1eDBiTA6Kx364OmdiXynaTy3YmyI&_nc_ht=scontent-amt2-1.xx&oh=c40e6640448e035edb073b9e74c43320&oe=5E1D3AA7" />
+  backgroundImage="https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/66413081_1102391766625390_3403083471168471040_o.jpg?_nc_cat=104&_nc_oc=AQlbuxNnGjVvzJQHlvY-Ic_Vvz_UMfj93JelMml3RyrOL0JzjqPNcrtFrLgX3N7QMQE&_nc_ht=scontent-amt2-1.xx&oh=a3e37021e44826cea0a3127c30041f8a&oe=5E94F6A3" />
 
 <section class="hero">
   <div class="hero__intro">
